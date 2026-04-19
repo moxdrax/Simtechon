@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Careers at SimtechON | Join Our Global IT Team</title>
+    <meta name="description"
+        content="Join SimtechON and help us deliver world-class IT solutions. Explore our current job openings for IT specialists, network engineers, and support roles." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --blue-50: #eff6ff;
+            --blue-100: #dbeafe;
+            --blue-200: #bfdbfe;
+            --blue-400: #2563eb;
+            --blue-500: #1d4ed8;
+            --blue-600: #1e40af;
+            --blue-700: #1e3a8a;
+            --blue-900: #172554;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-700: #334155;
+            --gray-900: #0f172a;
+            --text-muted: #64748b;
+            --text-dim: #94a3b8;
+            --card-bg: #ffffff;
+            --card-border: #e2e8f0;
+            --radius-lg: 1.25rem;
+            --radius-xl: 2rem;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-900);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* ─── UTILITY ─── */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .material-symbols-rounded {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        .filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* ─── NAVBAR ─── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--card-border);
+            box-shadow: 0 1px 20px rgba(15, 23, 42, 0.06);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 68px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .nav-logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--blue-500), var(--blue-700));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .nav-logo-text {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--gray-900);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-logo-text span {
+            color: var(--blue-400);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--gray-900);
+        }
+
+        .nav-links a.active {
+            color: var(--gray-900);
+            font-weight: 600;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--blue-400);
+            border-radius: 2px;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--blue-500), var(--blue-700));
+            color: #fff;
+            border: none;
+            padding: 0.55rem 1.4rem;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+            text-decoration: none;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+        }
+
+        .nav-hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--gray-700);
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* ─── PAGE HERO ─── */
+        .page-hero {
+            padding: 10rem 0 6rem;
+            text-align: center;
+            background: linear-gradient(180deg, #ffffff 0%, var(--gray-50) 100%);
+            border-bottom: 1px solid var(--card-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            background: var(--blue-50);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            color: var(--blue-400);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .page-hero h1 {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 900;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            letter-spacing: -0.03em;
+            color: var(--gray-900);
+            line-height: 1.1;
+            margin-bottom: 1.25rem;
+        }
+
+        .page-hero h1 span {
+            background: linear-gradient(135deg, var(--blue-400), var(--blue-600));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-hero p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* ─── SECTION COMMON ─── */
+        section {
+            padding: 6rem 0;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--blue-400);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 800;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            letter-spacing: -0.025em;
+            color: var(--gray-900);
+            line-height: 1.2;
+        }
+
+        .section-sub {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-top: 0.75rem;
+            line-height: 1.7;
+            max-width: 520px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header .section-sub {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ─── WHY JOIN US ─── */
+        #culture {
+            background: #ffffff;
+        }
+
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .culture-card {
+            background: var(--gray-50);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .culture-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+        }
+
+        .culture-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--blue-50);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blue-400);
+            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+        }
+
+        .culture-card h3 {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--gray-900);
+            margin-bottom: 0.75rem;
+        }
+
+        .culture-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ─── JOB LISTINGS ─── */
+        #openings {
+            background: var(--gray-50);
+        }
+
+        .jobs-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .job-card {
+            background: #ffffff;
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            cursor: pointer;
+        }
+
+        .job-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+            border-color: var(--blue-200);
+        }
+
+        .job-info h3 {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .job-meta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .job-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .job-meta-item .material-symbols-rounded {
+            font-size: 1.1rem;
+            color: var(--blue-400);
+        }
+
+        .job-badge {
+            background: var(--blue-50);
+            color: var(--blue-500);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .job-apply {
+            flex-shrink: 0;
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: var(--blue-500);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            border: 2px solid var(--blue-100);
+            transition: all 0.2s;
+        }
+
+        .job-card:hover .btn-outline {
+            background: var(--blue-500);
+            color: #ffffff;
+            border-color: var(--blue-500);
+        }
+
+        /* ─── PROCESS ─── */
+        #process {
+            background: #ffffff;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 28px;
+            left: 50px;
+            right: 50px;
+            height: 2px;
+            background: var(--blue-100);
+            z-index: 0;
+        }
+
+        .step-card {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .step-number {
+            width: 56px;
+            height: 56px;
+            background: #ffffff;
+            border: 2px solid var(--blue-500);
+            color: var(--blue-500);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.25rem;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 0 0 8px #ffffff;
+        }
+
+        .step-card h4 {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--gray-900);
+            margin-bottom: 0.75rem;
+        }
+
+        .step-card p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ─── NEWSLETTER ─── */
+        #newsletter {
+            background: linear-gradient(135deg, var(--gray-100) 0%, #e8f0fe 50%, var(--gray-100) 100%);
+            border-top: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .newsletter-inner {
+            text-align: center;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .newsletter-inner .section-title {
+            margin-bottom: 0.5rem;
+        }
+
+        .newsletter-inner .section-sub {
+            margin: 0.5rem auto 2rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.75rem;
+            max-width: 460px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            background: #ffffff;
+            border: 1px solid var(--card-border);
+            border-radius: 50px;
+            padding: 0.75rem 1.25rem;
+            color: var(--gray-900);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .newsletter-form input::placeholder {
+            color: var(--text-dim);
+        }
+
+        .newsletter-form input:focus {
+            border-color: var(--blue-400);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .newsletter-form button {
+            background: linear-gradient(135deg, var(--blue-500), var(--blue-700));
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 0.75rem 1.75rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            white-space: nowrap;
+        }
+
+        .newsletter-form button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: var(--gray-50);
+            border-top: 1px solid var(--card-border);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .footer-brand p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-top: 0.75rem;
+            max-width: 260px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+        }
+
+        .social-btn {
+            width: 36px;
+            height: 36px;
+            background: #ffffff;
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .social-btn:hover {
+            background: var(--blue-50);
+            border-color: rgba(37, 99, 235, 0.3);
+            color: var(--blue-400);
+            box-shadow: 0 2px 10px rgba(37, 99, 235, 0.12);
+        }
+
+        .footer-col h4 {
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-col ul li a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--blue-400);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-item .material-symbols-rounded {
+            font-size: 1rem;
+            color: var(--blue-400);
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .contact-item a {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            line-height: 1.4;
+        }
+
+        .contact-item a:hover {
+            color: var(--blue-400);
+        }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
+            font-size: 0.78rem;
+            color: var(--text-dim);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            font-size: 0.78rem;
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--blue-400);
+        }
+
+        /* ─── SCROLL ANIMATIONS ─── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-up-d1 {
+            transition-delay: 0.1s;
+        }
+
+        .fade-up-d2 {
+            transition-delay: 0.2s;
+        }
+
+        .fade-up-d3 {
+            transition-delay: 0.3s;
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 900px) {
+            .culture-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-inner {
+                padding: 0 1rem;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 68px;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                flex-direction: column;
+                gap: 0;
+                border-bottom: 1px solid var(--card-border);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.35s ease-out;
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                z-index: 1000;
+            }
+
+            .nav-links.nav-active {
+                max-height: 400px;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1.25rem 1.5rem;
+                font-size: 1rem;
+                border-bottom: 1px solid var(--gray-50);
+                color: var(--gray-900);
+            }
+
+            .nav-links a.active::after {
+                display: none;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .nav-hamburger {
+                display: flex;
+            }
+
+            .culture-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .job-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.5rem;
+            }
+
+            .job-apply {
+                width: 100%;
+            }
+
+            .btn-outline {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* ─── PRICING CARDS ─── */
+        #pricing {
+            background: var(--blue-50);
+            border-top: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .pricing-card {
+            background: #ffffff;
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: 0 2px 16px rgba(15,23,42,0.07);
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(15,23,42,0.12);
+            border-color: rgba(37,99,235,0.25);
+        }
+
+        .pricing-card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .pricing-card-body {
+            padding: 1.5rem;
+        }
+
+        .pricing-card-body h3 {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--gray-900);
+            margin-bottom: 0.4rem;
+        }
+
+        .pricing-card-body p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-price {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--blue-500);
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            background: linear-gradient(135deg, var(--blue-500), var(--blue-700));
+            color: #fff;
+            padding: 0.8rem 1.75rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 20px rgba(37,99,235,0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(37,99,235,0.45);
+        }
+
+        /* ─── FAQ ─── */
+        #faq { background: #ffffff; }
+
+        .faq-list {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--card-border);
+            padding: 1.5rem 0;
+        }
+
+        .faq-item:first-child { border-top: 1px solid var(--card-border); }
+
+        .faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            padding: 0;
+        }
+
+        .faq-question span {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--gray-900);
+            transition: color 0.2s;
+        }
+
+        .faq-question:hover span { color: var(--blue-500); }
+
+        .faq-icon {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            background: var(--gray-100);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blue-400);
+            transition: background 0.2s, transform 0.3s;
+        }
+
+        .faq-item.open .faq-icon {
+            background: var(--blue-50);
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+            padding-top: 0;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 200px;
+            padding-top: 0.875rem;
+        }
+
+        /* ─── BLOG ─── */
+        #blog { background: var(--gray-50); }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .blog-card {
+            background: #ffffff;
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            transition: transform 0.28s, box-shadow 0.28s;
+            cursor: pointer;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 50px rgba(15,23,42,0.1);
+        }
+
+        .blog-card-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .blog-card-body { padding: 1.5rem 1.75rem; }
+
+        .blog-card-body h3 {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .blog-meta {
+            font-size: 0.78rem;
+            color: var(--text-dim);
+        }
+
+        /* ─── RESPONSIVE ADDITIONS ─── */
+        @media (max-width: 900px) {
+            .pricing-grid { grid-template-columns: 1fr 1fr; }
+            .blog-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 640px) {
+            .pricing-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ─── NAVBAR ─── -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <div class="nav-logo-icon">
+                    <span class="material-symbols-rounded filled" style="font-size:18px;">bolt</span>
+                </div>
+                <span class="nav-logo-text">Simtech<span>ON</span></span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="jobs.html" class="active">Jobs</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <a href="contact.html" class="nav-cta">Get Help</a>
+            <button class="nav-hamburger" aria-label="Menu">
+                <span class="material-symbols-rounded">menu</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ─── PAGE HERO ─── -->
+    <div class="page-hero">
+        <div class="container page-hero-content">
+            <div class="page-hero-label">
+                <span class="material-symbols-rounded filled" style="font-size:14px;">groups</span>
+                We are hiring
+            </div>
+            <h1>Build Your Future<br /><span>With SimtechON</span></h1>
+            <p>Join a fast-growing team of IT experts delivering world-class support and innovative solutions to businesses worldwide.</p>
+        </div>
+    </div>
+
+    <!-- ─── WHY JOIN US ─── -->
+    <section id="culture">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-label">Our Culture</span>
+                <h2 class="section-title">Why Join SimtechON?</h2>
+                <p class="section-sub">We're more than just an IT company — we're a community of problem-solvers dedicated to excellence.</p>
+            </div>
+
+            <div class="culture-grid">
+                <div class="culture-card fade-up">
+                    <div class="culture-icon">
+                        <span class="material-symbols-rounded filled">public</span>
+                    </div>
+                    <h3>Global Impact</h3>
+                    <p>Work on diverse projects and support businesses across the globe, from hardware to complex network solutions.</p>
+                </div>
+                <div class="culture-card fade-up fade-up-d1">
+                    <div class="culture-icon">
+                        <span class="material-symbols-rounded filled">trending_up</span>
+                    </div>
+                    <h3>Career Growth</h3>
+                    <p>We invest in your development with continuous training, certifications, and clear paths for advancement.</p>
+                </div>
+                <div class="culture-card fade-up fade-up-d2">
+                    <div class="culture-icon">
+                        <span class="material-symbols-rounded filled">diversity_3</span>
+                    </div>
+                    <h3>Great Team</h3>
+                    <p>Collaborate with some of the best minds in IT in a supportive, inclusive, and innovative work environment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── CURRENT OPENINGS ─── -->
+    <section id="openings">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-label">Current Openings</span>
+                <h2 class="section-title">Explore Opportunities</h2>
+                <p class="section-sub">Find the role that matches your skills and passions.</p>
+            </div>
+
+            <div class="jobs-container">
+                <!-- Job 1 -->
+                <div class="job-card fade-up">
+                    <div class="job-info">
+                        <h3>IT Support Specialist</h3>
+                        <div class="job-meta">
+                            <div class="job-meta-item">
+                                <span class="material-symbols-rounded">location_on</span>
+                                <span>Dublin (On-site)</span>
+                            </div>
+                            <div class="job-meta-item">
+                                <span class="material-symbols-rounded">schedule</span>
+                                <span>Full-time</span>
+                            </div>
+                            <span class="job-badge">Technical</span>
+                        </div>
+                    </div>
+                    <div class="job-apply">
+                        <a href="contact.html" class="btn-outline">Apply Now</a>
+                    </div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="job-card fade-up fade-up-d1">
+                    <div class="job-info">
+                        <h3>Network Engineer</h3>
+                        <div class="job-meta">
+                            <div class="job-meta-item">
+                                <span class="material-symbols-rounded">location_on</span>
+                                <span>Remote / Hybrid</span>
+                            </div>
+                            <div class="job-meta-item">
+                                <span class="material-symbols-rounded">schedule</span>
+                                <span>Full-time</span>
+                            </div>
+                            <span class="job-badge">Network</span>
+                        </div>
+                    </div>
+                    <div class="job-apply">
+                        <a href="contact.html" class="btn-outline">Apply Now</a>
+                    </div>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="job-card fade-up fade-up-d2">
+                    <div class="job-info">
+                        <h3>Help Desk Analyst</h3>
+                        <div class="job-meta">
+                            <div class="job-meta-item">
+                                <span class="material-symbols-rounded">location_on</span>
+                                <span>London (Hybrid)</span>
+                            </div>
+                            <div class="job-meta-item">
+                                <span class="material-symbols-rounded">schedule</span>
+                                <span>Contract</span>
+                            </div>
+                            <span class="job-badge">Support</span>
+                        </div>
+                    </div>
+                    <div class="job-apply">
+                        <a href="contact.html" class="btn-outline">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── PROCESS ─── -->
+    <section id="process">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-label">How it works</span>
+                <h2 class="section-title">Application Process</h2>
+                <p class="section-sub">Our straightforward hiring process designed to find the best fit for you and us.</p>
+            </div>
+
+            <div class="process-steps">
+                <div class="step-card fade-up">
+                    <div class="step-number">01</div>
+                    <h4>Apply</h4>
+                    <p>Submit your CV and cover letter through our portal or email.</p>
+                </div>
+                <div class="step-card fade-up fade-up-d1">
+                    <div class="step-number">02</div>
+                    <h4>Review</h4>
+                    <p>Our recruitment team reviews your profile against role requirements.</p>
+                </div>
+                <div class="step-card fade-up fade-up-d2">
+                    <div class="step-number">03</div>
+                    <h4>Interview</h4>
+                    <p>Meet the team and discuss your technical skills and experience.</p>
+                </div>
+                <div class="step-card fade-up fade-up-d3">
+                    <div class="step-number">04</div>
+                    <h4>Offer</h4>
+                    <p>Welcome to SimtechON! We'll guide you through onboarding.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── NEWSLETTER ─── -->
+    <section id="newsletter">
+        <div class="container">
+            <div class="newsletter-inner fade-up">
+                <span class="section-label">Job Alerts</span>
+                <h2 class="section-title">Get Notified</h2>
+                <p class="section-sub">Don't see the right role? Sign up for job alerts and be the first to know when we're hiring.</p>
+
+                <form class="newsletter-form" onsubmit="return false;">
+                    <input type="email" id="newsletter-email" placeholder="Your email address" autocomplete="email" />
+                    <button type="submit" id="newsletter-send">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo" style="text-decoration:none;">
+                        <div class="nav-logo-icon">
+                            <span class="material-symbols-rounded filled" style="font-size:18px;">bolt</span>
+                        </div>
+                        <span class="nav-logo-text">Simtech<span>ON</span></span>
+                    </a>
+                    <p>Reach out anytime for IT support help. We're here to keep your business moving forward.</p>
+                    <div class="footer-socials">
+                        <a href="#" class="social-btn" aria-label="Facebook">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Instagram">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="TikTok">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.79a8.18 8.18 0 004.78 1.52V6.85a4.85 4.85 0 01-1.01-.16z"/></svg>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="X / Twitter">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Pages -->
+                <div class="footer-col">
+                    <h4>Pages</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="jobs.html">Jobs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="contact-item">
+                        <span class="material-symbols-rounded">mail</span>
+                        <a href="mailto:support@simtechon.com">support@simtechon.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="material-symbols-rounded">location_on</span>
+                        <span>Dublin 15, Ireland</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025. All rights reserved — SimtechON IT Solutions.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Security</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ─── Scroll-based fade-in ───
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // ─── Mobile Navbar Toggle ───
+        const hamburger = document.querySelector('.nav-hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const hamburgerIcon = hamburger.querySelector('.material-symbols-rounded');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('nav-active');
+            hamburgerIcon.textContent = navLinks.classList.contains('nav-active') ? 'close' : 'menu';
+        });
+
+        // Close menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('nav-active');
+                hamburgerIcon.textContent = 'menu';
+            });
+        });
+
+        // ─── Navbar background on scroll ───
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.style.background = 'rgba(255,255,255,0.97)';
+                navbar.style.boxShadow = '0 2px 24px rgba(15,23,42,0.1)';
+            } else {
+                navbar.style.background = 'rgba(255,255,255,0.85)';
+                navbar.style.boxShadow = '0 1px 20px rgba(15,23,42,0.06)';
+            }
+        });
+    </script>
+
+</body>
+
+</html>
