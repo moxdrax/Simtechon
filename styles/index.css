@@ -325,10 +325,6 @@
     line-height: 1.6;
 }
 
-/* ─── SERVICES PREVIEW ─── */
-#services {
-}
-
 
 .services-grid {
     display: grid;
@@ -398,9 +394,6 @@
     margin-bottom: 0.5rem;
 }
 
-/* ─── WHY CHOOSE US ─── */
-#why-choose-us {
-}
 
 .benefits-grid {
     display: grid;
@@ -454,10 +447,6 @@
     font-size: 0.85rem;
     color: var(--text-muted);
     line-height: 1.6;
-}
-
-/* ─── TESTIMONIALS ─── */
-#testimonials {
 }
 
 .testimonials-grid {
