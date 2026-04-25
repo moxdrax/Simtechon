@@ -12,1210 +12,34 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@600;700;800;900&display=swap"
         rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-        rel="stylesheet" />
-
-    <style>
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        :root {
-            --blue-50: #eff6ff;
-            --blue-100: #dbeafe;
-            --blue-200: #bfdbfe;
-            --blue-400: #2563eb;
-            --blue-500: #1d4ed8;
-            --blue-600: #1e40af;
-            --blue-700: #1e3a8a;
-            --blue-900: #172554;
-            --gray-50: #f8fafc;
-            --gray-100: #f1f5f9;
-            --gray-200: #e2e8f0;
-            --gray-300: #cbd5e1;
-            --gray-700: #334155;
-            --gray-900: #0f172a;
-            --text-muted: #64748b;
-            --text-dim: #94a3b8;
-            --card-bg: #ffffff;
-            --card-border: #e2e8f0;
-            --radius-lg: 1.25rem;
-            --radius-xl: 2rem;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--gray-50);
-            color: var(--gray-900);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-        }
-
-        /* ─── UTILITY ─── */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .material-symbols-rounded {
-            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-            vertical-align: middle;
-        }
-
-        .filled {
-            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-
-        /* ─── AMBIENT GLOW ─── */
-        .glow-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(120px);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* ─── AMBIENT GLOW ─── */
-        .glow-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(120px);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* ─── NAVBAR ─── */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--card-border);
-            box-shadow: 0 1px 20px rgba(15, 23, 42, 0.06);
-        }
-
-        .nav-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 68px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-        }
-
-        .nav-logo-icon {
-            width: 36px;
-            height: 36px;
-            background: linear-gradient(135deg, var(--blue-500), var(--blue-700));
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            color: #fff;
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
-        }
-
-        .nav-logo-text {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 800;
-            font-size: 1.2rem;
-            color: var(--gray-900);
-            letter-spacing: -0.02em;
-        }
-
-        .nav-logo-text span {
-            color: var(--blue-400);
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: color 0.2s;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--gray-900);
-        }
-
-        .nav-links a.active {
-            color: var(--gray-900);
-            font-weight: 600;
-        }
-
-        .nav-links a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--blue-400);
-            border-radius: 2px;
-        }
-
-        .nav-cta {
-            background: linear-gradient(135deg, var(--blue-500), var(--blue-700));
-            color: #fff;
-            border: none;
-            padding: 0.55rem 1.4rem;
-            border-radius: 50px;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.875rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-            text-decoration: none;
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
-        }
-
-        .nav-hamburger {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--gray-700);
-            cursor: pointer;
-            font-size: 1.5rem;
-        }
-
-        /* ─── HERO ─── */
-        #hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        #hero .hero-bg {
-            position: absolute;
-            inset: 0;
-            background: url('assets/hero_bg.png') center/cover no-repeat;
-            filter: brightness(0.4) saturate(0.7);
-            z-index: 0;
-        }
-
-        #hero .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.78) 0%, rgba(29, 78, 216, 0.18) 50%, rgba(15, 23, 42, 0.82) 100%);
-            z-index: 1;
-        }
-
-        .hero-glow-1 {
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(29, 78, 216, 0.3) 0%, transparent 70%);
-            top: -100px;
-            left: -100px;
-        }
-
-        .hero-glow-2 {
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(37, 99, 235, 0.2) 0%, transparent 70%);
-            bottom: -80px;
-            right: -80px;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.375rem;
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: #fff;
-            padding: 0.35rem 0.85rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-badge .dot {
-            width: 6px;
-            height: 6px;
-            background: #93c5fd;
-            border-radius: 50%;
-            animation: pulse-dot 2s infinite;
-        }
-
-        @keyframes pulse-dot {
-
-            0%,
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 0.5;
-                transform: scale(0.8);
-            }
-        }
-
-        .hero-title {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 900;
-            font-size: clamp(2.8rem, 7vw, 5.5rem);
-            line-height: 1.05;
-            letter-spacing: -0.03em;
-            color: #ffffff;
-            margin-bottom: 1.25rem;
-        }
-
-        .hero-title .accent {
-            background: linear-gradient(135deg, #93c5fd, #bfdbfe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-sub {
-            font-size: 1.125rem;
-            color: rgba(255, 255, 255, 0.75);
-            max-width: 540px;
-            margin-bottom: 2.5rem;
-            line-height: 1.7;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: linear-gradient(135deg, var(--blue-500), var(--blue-700));
-            color: #fff;
-            padding: 0.85rem 2rem;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.35);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 50px rgba(59, 130, 246, 0.55);
-        }
-
-        .btn-ghost {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            color: #ffffff;
-            padding: 0.85rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-decoration: none;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            cursor: pointer;
-            transition: background 0.2s, border-color 0.2s;
-        }
-
-        .btn-ghost:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-
-        /* Hero Pillars */
-        .hero-pillars {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            margin-top: 4rem;
-        }
-
-        .pillar {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(12px);
-            padding: 1.75rem 2rem;
-            transition: background 0.25s;
-        }
-
-        .pillar:hover {
-            background: rgba(255, 255, 255, 0.16);
-        }
-
-        .pillar-icon {
-            width: 44px;
-            height: 44px;
-            background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 0.875rem;
-            color: #93c5fd;
-        }
-
-        .pillar h3 {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-            color: #ffffff;
-            margin-bottom: 0.4rem;
-        }
-
-        .pillar p {
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.65);
-            line-height: 1.5;
-        }
-
-        /* ─── SECTION WRAPPER ─── */
-        section {
-            padding: 6rem 0;
-            position: relative;
-        }
-
-        .section-label {
-            display: inline-block;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--blue-400);
-            margin-bottom: 0.75rem;
-        }
-
-        .section-title {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 800;
-            font-size: clamp(1.8rem, 4vw, 3rem);
-            letter-spacing: -0.025em;
-            color: var(--gray-900);
-            line-height: 1.2;
-        }
-
-        .section-sub {
-            font-size: 1.05rem;
-            color: var(--text-muted);
-            margin-top: 0.75rem;
-            max-width: 520px;
-            line-height: 1.7;
-        }
-
-        /* ─── TRUSTED PARTNER ─── */
-        #partner {
-            background: var(--gray-100);
-        }
-
-        .partner-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .partner-img-wrap {
-            position: relative;
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-        }
-
-        .partner-img-wrap img {
-            width: 100%;
-            height: 380px;
-            object-fit: cover;
-            display: block;
-            border-radius: var(--radius-xl);
-        }
-
-        .partner-quote {
-            position: absolute;
-            bottom: 1.5rem;
-            left: 1.5rem;
-            right: 1.5rem;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(16px);
-            border: 1px solid var(--card-border);
-            border-radius: var(--radius-lg);
-            padding: 1.25rem 1.5rem;
-            box-shadow: 0 8px 32px rgba(15, 23, 42, 0.12);
-        }
-
-        .partner-quote blockquote {
-            font-size: 0.9rem;
-            font-style: italic;
-            color: var(--gray-700);
-            margin-bottom: 0.5rem;
-        }
-
-        .partner-quote cite {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--blue-400);
-            font-style: normal;
-        }
-
-        .partner-quote .stars {
-            color: #fbbf24;
-            font-size: 0.8rem;
-            margin-bottom: 0.4rem;
-        }
-
-        .partner-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .stat-card {
-            background: #ffffff;
-            border: 1px solid var(--card-border);
-            border-radius: var(--radius-lg);
-            padding: 1.25rem;
-            box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
-        }
-
-        .stat-card .value {
-            font-family: 'Manrope', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--blue-400);
-            letter-spacing: -0.03em;
-        }
-
-        .stat-card .label {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-top: 0.2rem;
-        }
-
-        /* ─── FEATURES ─── */
-        #features {
-            background: #ffffff;
-            padding: 4rem 0;
-            border-bottom: 1px solid var(--card-border);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .feature-card {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.25rem;
-            background: var(--gray-50);
-            border: 1px solid var(--card-border);
-            border-radius: 1.25rem;
-            padding: 1.75rem;
-            transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(15,23,42,0.08);
-            border-color: rgba(37,99,235,0.25);
-        }
-
-        .feature-card-icon {
-            flex-shrink: 0;
-            width: 52px;
-            height: 52px;
-            background: linear-gradient(135deg, var(--blue-400), var(--blue-600));
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffffff;
-            box-shadow: 0 4px 16px rgba(37,99,235,0.25);
-        }
-
-        .feature-card-body h3 {
-            font-family: 'Manrope', sans-serif;
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--gray-900);
-            margin-bottom: 0.4rem;
-        }
-
-        .feature-card-body p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        /* ─── SERVICES ─── */
-        #services {
-            background: #ffffff;
-        }
-
-        .services-header {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
-
-        .services-header .section-sub {
-            margin: 0.75rem auto 0;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .service-card {
-            background: #ffffff;
-            border: 1px solid var(--card-border);
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-            position: relative;
-            box-shadow: 0 2px 16px rgba(15, 23, 42, 0.07);
-        }
-
-        .service-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(37, 99, 235, 0.3);
-            box-shadow: 0 20px 60px rgba(15, 23, 42, 0.12), 0 0 40px rgba(37, 99, 235, 0.06);
-        }
-
-        .service-card-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .service-card-body {
-            padding: 1.5rem;
-        }
-
-        .service-card-icon {
-            width: 42px;
-            height: 42px;
-            background: rgba(59, 130, 246, 0.12);
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--blue-400);
-            margin-bottom: 1rem;
-        }
-
-        .service-card h3 {
-            font-family: 'Manrope', sans-serif;
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--gray-900);
-            margin-bottom: 0.5rem;
-        }
-
-        .service-card p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        .service-card-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            margin-top: 1rem;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--blue-400);
-            text-decoration: none;
-            opacity: 0;
-            transition: opacity 0.25s;
-        }
-
-        .service-card:hover .service-card-link {
-            opacity: 1;
-        }
-
-        /* ─── NEWSLETTER ─── */
-        #newsletter {
-            background: linear-gradient(135deg, var(--gray-100) 0%, #e8f0fe 50%, var(--gray-100) 100%);
-            border-top: 1px solid var(--card-border);
-            border-bottom: 1px solid var(--card-border);
-        }
-
-        .newsletter-inner {
-            text-align: center;
-            max-width: 560px;
-            margin: 0 auto;
-        }
-
-        .newsletter-inner .section-title {
-            margin-bottom: 0.5rem;
-        }
-
-        .newsletter-inner .section-sub {
-            margin: 0.5rem auto 2rem;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 0.75rem;
-            max-width: 460px;
-            margin: 0 auto;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            background: #ffffff;
-            border: 1px solid var(--card-border);
-            border-radius: 50px;
-            padding: 0.75rem 1.25rem;
-            color: var(--gray-900);
-            font-family: 'Inter', sans-serif;
-            font-size: 0.875rem;
-            outline: none;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        .newsletter-form input::placeholder {
-            color: var(--text-dim);
-        }
-
-        .newsletter-form input:focus {
-            border-color: var(--blue-400);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        .newsletter-form button {
-            background: linear-gradient(135deg, var(--blue-500), var(--blue-700));
-            color: #fff;
-            border: none;
-            border-radius: 50px;
-            padding: 0.75rem 1.75rem;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            font-size: 0.875rem;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            white-space: nowrap;
-        }
-
-        .newsletter-form button:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
-        }
-
-        /* ─── CONTACT / FOOTER ─── */
-        footer {
-            background: var(--gray-50);
-            border-top: 1px solid var(--card-border);
-            padding: 4rem 0 2rem;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.4fr 1fr 1fr;
-            gap: 3rem;
-            padding-bottom: 3rem;
-            border-bottom: 1px solid var(--card-border);
-        }
-
-        .footer-brand p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin-top: 0.75rem;
-            max-width: 260px;
-        }
-
-        .footer-socials {
-            display: flex;
-            gap: 0.75rem;
-            margin-top: 1.25rem;
-        }
-
-        .social-btn {
-            width: 36px;
-            height: 36px;
-            background: #ffffff;
-            border: 1px solid var(--card-border);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.8rem;
-            transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
-        }
-
-        .social-btn:hover {
-            background: var(--blue-50);
-            border-color: rgba(37,99,235,0.3);
-            color: var(--blue-400);
-            box-shadow: 0 2px 10px rgba(37,99,235,0.12);
-        }
-
-        .footer-col h4 {
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: #64748b;
-            margin-bottom: 1rem;
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 0.6rem;
-        }
-
-        .footer-col ul li a {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-size: 0.875rem;
-            transition: color 0.2s;
-        }
-
-        .footer-col ul li a:hover {
-            color: var(--blue-400);
-        }
-
-        /* Contact column */
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.6rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .contact-item .material-symbols-rounded {
-            font-size: 1rem;
-            color: var(--blue-400);
-            margin-top: 2px;
-            flex-shrink: 0;
-        }
-
-        .contact-item span,
-        .contact-item a {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            text-decoration: none;
-            line-height: 1.4;
-        }
-
-        .contact-item a:hover {
-            color: var(--blue-400);
-        }
-
-        /* Contact form mini */
-        .contact-form {
-            margin-top: 0.5rem;
-        }
-
-        .contact-form input {
-            width: 100%;
-            background: #ffffff;
-            border: 1px solid var(--card-border);
-            border-radius: 10px;
-            padding: 0.6rem 0.875rem;
-            color: var(--gray-900);
-            font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
-            outline: none;
-            margin-bottom: 0.5rem;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        .contact-form input::placeholder {
-            color: var(--text-dim);
-        }
-
-        .contact-form input:focus {
-            border-color: var(--blue-400);
-            box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
-        }
-
-        .contact-form button {
-            width: 100%;
-            background: linear-gradient(135deg, var(--blue-500), var(--blue-700));
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            padding: 0.65rem;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
-
-        .contact-form button:hover {
-            opacity: 0.9;
-        }
-
-        .footer-bottom {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-top: 2rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .footer-bottom p {
-            font-size: 0.78rem;
-            color: var(--text-dim);
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .footer-links a {
-            font-size: 0.78rem;
-            color: var(--text-dim);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-            color: var(--blue-400);
-        }
-
-        /* ─── SCROLL ANIMATIONS ─── */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .fade-up-d1 {
-            transition-delay: 0.1s;
-        }
-
-        .fade-up-d2 {
-            transition-delay: 0.2s;
-        }
-
-        .fade-up-d3 {
-            transition-delay: 0.3s;
-        }
-
-        /* ─── RESPONSIVE ─── */
-        @media (max-width: 900px) {
-            .partner-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .hero-pillars {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-inner {
-                padding: 0 1rem;
-            }
-
-            .nav-links {
-                position: absolute;
-                top: 68px;
-                left: 0;
-                right: 0;
-                background: rgba(255, 255, 255, 0.98);
-                flex-direction: column;
-                gap: 0;
-                border-bottom: 1px solid var(--card-border);
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.35s ease-out;
-                backdrop-filter: blur(20px);
-                -webkit-backdrop-filter: blur(20px);
-                z-index: 1000;
-            }
-
-            .nav-links.nav-active {
-                max-height: 400px;
-            }
-
-            .nav-links li {
-                width: 100%;
-            }
-
-            .nav-links a {
-                display: block;
-                padding: 1.25rem 1.5rem;
-                font-size: 1rem;
-                border-bottom: 1px solid var(--gray-50);
-                color: var(--gray-900);
-            }
-
-            .nav-links a.active::after {
-                display: none;
-            }
-
-            .nav-cta {
-                display: none;
-            }
-
-            .nav-hamburger {
-                display: flex;
-            }
-
-            .hero-title {
-                font-size: clamp(2.2rem, 10vw, 3.5rem);
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .partner-stats {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .newsletter-form {
-                flex-direction: column;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <script src="scripts/component-loader.js" defer></script>
 </head>
 
 <body>
-
-    <!-- ─── NAVBAR ─── -->
-    <nav id="navbar">
-        <div class="nav-inner">
-            <a href="#" class="nav-logo">
-                <div class="nav-logo-icon">
-                    <span class="material-symbols-rounded filled" style="font-size:18px;">bolt</span>
-                </div>
-                <span class="nav-logo-text">Simtech<span>ON</span></span>
-            </a>
-
-            <ul class="nav-links">
-                <li><a href="#hero" class="active">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="jobs.html">Jobs</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-
-            <a href="contact.html" class="nav-cta">Get Help</a>
-            <button class="nav-hamburger" aria-label="Menu">
-                <span class="material-symbols-rounded">menu</span>
-            </button>
-        </div>
-    </nav>
+    <div id="header-placeholder"></div>
 
     <!-- ─── HERO ─── -->
     <section id="hero">
         <div class="hero-bg"></div>
-        <div class="hero-overlay"></div>
-        <div class="glow-orb hero-glow-1"></div>
-        <div class="glow-orb hero-glow-2"></div>
-
         <div class="container hero-content">
-            <div class="hero-badge">
-                <span class="dot"></span>
-                Available 24 / 7 · Worldwide
-            </div>
-
             <h1 class="hero-title">
-                IT Solutions<br />
-                <span class="accent">Tailored for You</span>
+                Expert IT Support Solutions<br />
+                <span class="accent">for Businesses Worldwide</span>
             </h1>
 
             <p class="hero-sub">
-                Expert support in hardware, software, and networks worldwide. We keep your business running — smoothly,
-                reliably, always.
-            </p>
+                We provide hardware, network, software support, and more to help
+                your business thrive</p>
 
             <div class="hero-actions">
                 <a href="contact.html" class="btn-primary" id="hero-get-help">
-                    <span class="material-symbols-rounded" style="font-size:1rem;">headset_mic</span>
-                    Get Help
+
+                    Request a Consultation
                 </a>
-                <a href="services.html" class="btn-ghost" id="hero-our-services">
-                    <span class="material-symbols-rounded" style="font-size:1rem;">grid_view</span>
-                    Our Services
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ─── FEATURES ─── -->
-    <section id="features">
-        <div class="container">
-            <div class="features-grid">
-                <div class="feature-card fade-up">
-                    <div class="feature-card-icon">
-                        <span class="material-symbols-rounded filled">support_agent</span>
-                    </div>
-                    <div class="feature-card-body">
-                        <h3>Support</h3>
-                        <p>Remote and onsite assistance for your business needs, available 24/7 worldwide.</p>
-                    </div>
-                </div>
-                <div class="feature-card fade-up fade-up-d1">
-                    <div class="feature-card-icon">
-                        <span class="material-symbols-rounded filled">groups</span>
-                    </div>
-                    <div class="feature-card-body">
-                        <h3>Staffing</h3>
-                        <p>Quick troubleshooting and expert staffing to keep you running smoothly at scale.</p>
-                    </div>
-                </div>
-                <div class="feature-card fade-up fade-up-d2">
-                    <div class="feature-card-icon">
-                        <span class="material-symbols-rounded filled">task_alt</span>
-                    </div>
-                    <div class="feature-card-body">
-                        <h3>Projects</h3>
-                        <p>Reliable project delivery and help whenever your business needs it most.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ─── TRUSTED IT PARTNER ─── -->
-    <section id="partner">
-        <div class="container">
-            <div class="partner-grid">
-                <!-- Left: image + quote -->
-                <div class="partner-img-wrap fade-up">
-                    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&q=80"
-                        alt="IT team collaborating at a workstation" />
-                    <div class="partner-quote">
-                        <div class="stars">★★★★★</div>
-                        <blockquote>"Fast, reliable, and always helpful."</blockquote>
-                        <cite>— Emma K., Operations Manager</cite>
-                    </div>
-                </div>
-
-                <!-- Right: text + stats -->
-                <div class="fade-up fade-up-d1">
-                    <span class="section-label">About Us</span>
-                    <h2 class="section-title">Your Trusted<br />IT Partner</h2>
-                    <p class="section-sub">
-                        SimtechON delivers on-site IT support — from hardware to software — helping businesses run
-                        smoothly worldwide.
-                    </p>
-
-                    <a href="contact.html" class="btn-primary" style="margin-top:2rem;display:inline-flex;"
-                        id="partner-get-support">
-                        <span class="material-symbols-rounded" style="font-size:1rem;">arrow_forward</span>
-                        Get Support
-                    </a>
-
-                    <div class="partner-stats">
-                        <div class="stat-card fade-up fade-up-d1">
-                            <div class="value">200+</div>
-                            <div class="label">Companies Served</div>
-                        </div>
-                        <div class="stat-card fade-up fade-up-d2">
-                            <div class="value">24/7</div>
-                            <div class="label">Active Support</div>
-                        </div>
-                        <div class="stat-card fade-up fade-up-d2">
-                            <div class="value">&lt; 2h</div>
-                            <div class="label">Avg. Response Time</div>
-                        </div>
-                        <div class="stat-card fade-up fade-up-d3">
-                            <div class="value">98%</div>
-                            <div class="label">Client Satisfaction</div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -1223,153 +47,206 @@
     <!-- ─── OUR SERVICES ─── -->
     <section id="services">
         <div class="container">
-            <div class="services-header fade-up">
+            <div class="section-header fade-up">
                 <span class="section-label">What We Do</span>
                 <h2 class="section-title">Our Services</h2>
-                <p class="section-sub">Reliable IT support tailored to your business needs worldwi de.</p>
+                <p class="section-sub">Reliable IT support tailored to your business needs worldwide.</p>
             </div>
 
             <div class="services-grid">
                 <!-- Hardware Support -->
                 <div class="service-card fade-up" id="service-hardware">
-                    <img class="service-card-img"
-                        src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&q=80"
-                        alt="Hardware circuit board close-up" />
                     <div class="service-card-body">
                         <div class="service-card-icon">
                             <span class="material-symbols-rounded filled">memory</span>
                         </div>
                         <h3>Hardware Support</h3>
-                        <p>We handle installation, maintenance, and repairs for your hardware so your team stays
-                            productive.</p>
-                        <a href="contact.html" class="service-card-link" id="hw-learn-more">
-                            Learn more <span class="material-symbols-rounded"
-                                style="font-size:0.9rem;">arrow_forward</span>
-                        </a>
+                        <p>Reliable IT hardware troubleshooting and repairs.</p>
                     </div>
                 </div>
 
                 <!-- Network Support -->
                 <div class="service-card fade-up fade-up-d1" id="service-network">
-                    <img class="service-card-img"
-                        src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=700&q=80"
-                        alt="Network cables and server rack" />
                     <div class="service-card-body">
                         <div class="service-card-icon">
                             <span class="material-symbols-rounded filled">hub</span>
                         </div>
                         <h3>Network Support</h3>
-                        <p>Ensuring your network runs smoothly with expert setup, monitoring, and troubleshooting.</p>
-                        <a href="contact.html" class="service-card-link" id="net-learn-more">
-                            Learn more <span class="material-symbols-rounded"
-                                style="font-size:0.9rem;">arrow_forward</span>
-                        </a>
+                        <p>Ensure your network is secure and running smoothly.</p>
                     </div>
                 </div>
 
-                <!-- Remote Assistance -->
+                <!-- Software Support -->
+                <div class="service-card fade-up fade-up-d2" id="service-software">
+                    <div class="service-card-body">
+                        <div class="service-card-icon">
+                            <span class="material-symbols-rounded filled">settings_suggest</span>
+                        </div>
+                        <h3>Software Support</h3>
+                        <p>Get professional assistance with all your software needs.</p>
+                    </div>
+                </div>
+
+                <!-- IT Manpower Supply -->
+                <div class="service-card fade-up" id="service-manpower">
+                    <div class="service-card-body">
+                        <div class="service-card-icon">
+                            <span class="material-symbols-rounded filled">badge</span>
+                        </div>
+                        <h3>IT Manpower Supply</h3>
+                        <p>Access skilled IT professionals for your business.</p>
+                    </div>
+                </div>
+
+                <!-- Project Undertaking -->
+                <div class="service-card fade-up fade-up-d1" id="service-projects">
+                    <div class="service-card-body">
+                        <div class="service-card-icon">
+                            <span class="material-symbols-rounded filled">architecture</span>
+                        </div>
+                        <h3>Project Undertaking</h3>
+                        <p>Customized IT solutions for your business projects.</p>
+                    </div>
+                </div>
+
+                <!-- Remote Support -->
                 <div class="service-card fade-up fade-up-d2" id="service-remote">
-                    <img class="service-card-img"
-                        src="https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?w=700&q=80"
-                        alt="Person working remotely on laptop" />
                     <div class="service-card-body">
                         <div class="service-card-icon">
                             <span class="material-symbols-rounded filled">screen_share</span>
                         </div>
-                        <h3>Remote Assistance</h3>
-                        <p>Flexible remote and on-site help whenever your business needs it, wherever you are.</p>
-                        <a href="contact.html" class="service-card-link" id="remote-learn-more">
-                            Learn more <span class="material-symbols-rounded"
-                                style="font-size:0.9rem;">arrow_forward</span>
-                        </a>
+                        <h3>Remote Support</h3>
+                        <p>Get quick and effective help from our remote IT experts.</p>
+                    </div>
+                </div>
+
+                <!-- Onsite Support -->
+                <div class="service-card fade-up" id="service-onsite">
+                    <div class="service-card-body">
+                        <div class="service-card-icon">
+                            <span class="material-symbols-rounded filled">person_pin_circle</span>
+                        </div>
+                        <h3>Onsite Support</h3>
+                        <p>Our experts can come to you to resolve any IT challenges.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ─── WHY CHOOSE US ─── -->
+    <section id="why-choose-us">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-label">Why SimtechON</span>
+                <h2 class="section-title">Why Choose Us?</h2>
+                <p class="section-sub">We combine global reach with local expertise to deliver exceptional IT support.
+                </p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card fade-up">
+                    <div class="benefit-icon">
+                        <span class="material-symbols-rounded">public</span>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Global Reach</h3>
+                        <p>Serving clients across the world from our base in Ireland.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-card fade-up fade-up-d1">
+                    <div class="benefit-icon">
+                        <span class="material-symbols-rounded">timer</span>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Timely Solutions</h3>
+                        <p>Professional and timely IT solutions for businesses of all sizes.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-card fade-up fade-up-d2">
+                    <div class="benefit-icon">
+                        <span class="material-symbols-rounded">workspace_premium</span>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Expert Team</h3>
+                        <p>Highly experienced IT professionals with industry expertise.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-card fade-up fade-up-d3">
+                    <div class="benefit-icon">
+                        <span class="material-symbols-rounded">support_agent</span>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Tailored Support</h3>
+                        <p>Tailored support options: remote or onsite.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ─── STAY CONNECTED (Newsletter) ─── -->
-    <section id="newsletter">
+    <!-- ─── TESTIMONIALS ─── -->
+    <section id="testimonials">
         <div class="container">
-            <div class="newsletter-inner fade-up">
-                <span class="section-label">Stay Connected</span>
-                <h2 class="section-title">Stay Connected</h2>
-                <p class="section-sub">Get updates on IT support and job openings delivered straight to your inbox.</p>
+            <div class="section-header fade-up">
+                <span class="section-label">Testimonials</span>
+                <h2 class="section-title">Testimonials</h2>
+                <p class="section-sub">What our clients say about us.</p>
+            </div>
 
-                <form class="newsletter-form" onsubmit="return false;">
-                    <input type="email" id="newsletter-email" placeholder="Your email address" autocomplete="email" />
-                    <button type="submit" id="newsletter-send">Send</button>
-                </form>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-up">
+                    <div class="testimonial-quote">
+                        <span class="material-symbols-rounded">format_quote</span>
+                    </div>
+                    <p class="testimonial-text">"SimtechON has been a game-changer for our IT infrastructure. Their
+                        remote support is incredibly fast and reliable. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/150?u=sarah" alt="Sarah Jenkins" />
+                        <div class="author-info">
+                            <h4>Sarah Jenkins</h4>
+                            <span>CEO, TechFlow</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card fade-up fade-up-d1">
+                    <div class="testimonial-quote">
+                        <span class="material-symbols-rounded">format_quote</span>
+                    </div>
+                    <p class="testimonial-text">"The onsite support team is professional and highly skilled. They
+                        resolved our complex network issues within hours. Truly experts."</p>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/150?u=david" alt="David Chen" />
+                        <div class="author-info">
+                            <h4>David Chen</h4>
+                            <span>Operations Manager</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card fade-up fade-up-d2">
+                    <div class="testimonial-quote">
+                        <span class="material-symbols-rounded">format_quote</span>
+                    </div>
+                    <p class="testimonial-text">"We've been using their IT manpower supply for 6 months. The quality of
+                        professionals they provide is top-notch and fits our culture perfectly."</p>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/150?u=elena" alt="Elena Rodriguez" />
+                        <div class="author-info">
+                            <h4>Elena Rodriguez</h4>
+                            <span>HR Director, GlobalScale</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- ─── FOOTER / CONTACT ─── -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-grid">
-
-                <!-- Brand -->
-                <div class="footer-brand">
-                    <a href="#" class="nav-logo" style="text-decoration:none;">
-                        <div class="nav-logo-icon">
-                            <span class="material-symbols-rounded filled" style="font-size:18px;">bolt</span>
-                        </div>
-                        <span class="nav-logo-text">Simtech<span>ON</span></span>
-                    </a>
-                    <p>Reach out anytime for IT support help. We're here to keep your business moving forward.</p>
-                    <div class="footer-socials">
-                        <a href="#" class="social-btn" aria-label="Facebook" id="social-fb">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-                        </a>
-                        <a href="#" class="social-btn" aria-label="Instagram" id="social-ig">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                        </a>
-                        <a href="#" class="social-btn" aria-label="TikTok" id="social-tt">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.79a8.18 8.18 0 004.78 1.52V6.85a4.85 4.85 0 01-1.01-.16z"/></svg>
-                        </a>
-                        <a href="#" class="social-btn" aria-label="X / Twitter" id="social-tw">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Pages -->
-                <div class="footer-col">
-                    <h4>Pages</h4>
-                    <ul>
-                        <li><a href="#hero">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="jobs.html">Jobs</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact Form -->
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <div class="contact-item">
-                        <span class="material-symbols-rounded">mail</span>
-                        <a href="mailto:support@simtechon.com">support@simtechon.com</a>
-                    </div>
-                    <form class="contact-form" onsubmit="return false;">
-                        <input type="text" id="contact-name" placeholder="Your Full Name" />
-                        <input type="tel" id="contact-phone" placeholder="Phone number" />
-                        <button type="submit" id="contact-send">Send Message</button>
-                    </form>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>© 2025. All rights reserved — SimtechON IT Solutions.</p>
-                <div class="footer-links">
-                    <a href="#">Privacy</a>
-                    <a href="#">Terms</a>
-                    <a href="#">Security</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
 
     <script>
@@ -1401,35 +278,7 @@
 
         sections.forEach(s => navObserver.observe(s));
 
-        // ─── Mobile Navbar Toggle ───
-        const hamburger = document.querySelector('.nav-hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        const hamburgerIcon = hamburger.querySelector('.material-symbols-rounded');
 
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('nav-active');
-            hamburgerIcon.textContent = navLinks.classList.contains('nav-active') ? 'close' : 'menu';
-        });
-
-        // Close menu when clicking a link
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('nav-active');
-                hamburgerIcon.textContent = 'menu';
-            });
-        });
-
-        // ─── Navbar background on scroll ───
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                navbar.style.background = 'rgba(255,255,255,0.97)';
-                navbar.style.boxShadow = '0 2px 24px rgba(15,23,42,0.1)';
-            } else {
-                navbar.style.background = 'rgba(255,255,255,0.85)';
-                navbar.style.boxShadow = '0 1px 20px rgba(15,23,42,0.06)';
-            }
-        });
     </script>
 
 </body>
