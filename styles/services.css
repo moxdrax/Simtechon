@@ -8,7 +8,7 @@
     justify-content: center;
     text-align: center;
     color: #ffffff;
-    min-height: 70vh;
+    min-height: 100vh;
     overflow: hidden;
 }
 
@@ -286,7 +286,7 @@
     font-family: 'Manrope', sans-serif;
     font-size: 2rem;
     font-weight: 800;
-    color: var(--gray-900);
+    color: var(--blue-400);
     margin-bottom: 1.5rem;
     letter-spacing: -0.02em;
 }
