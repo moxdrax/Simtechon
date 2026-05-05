@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration | SimtechON Job Portal</title>
+    <meta name="description"
+        content="Create your account on the SimtechON Job Portal. Join our network of IT professionals or find the best talent for your business." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/registration.css">
+    <script src="scripts/component-loader.js" defer></script>
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+
+    <main style="padding-top: 100px;">
+        <!-- ─── REGISTRATION PORTAL ─── -->
+        <section id="registration">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <h2 class="section-title">Portal <span class="text-blue">Registration</span></h2>
+                    <p class="section-sub">Choose your role to create an account and join our global IT network.</p>
+                </div>
+
+                <div class="portal-tabs-container fade-up">
+                    <div class="portal-tabs">
+                        <button class="portal-tab active" onclick="switchTab('employer')">I am an Employer</button>
+                        <button class="portal-tab" onclick="switchTab('employee')">I am an Employee</button>
+                        <div class="tab-indicator"></div>
+                    </div>
+
+                    <!-- Employer Form -->
+                    <div id="employer-form" class="registration-form active">
+                        <form>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>Full Name</label>
+                                    <input type="text" placeholder="Enter name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Location</label>
+                                    <input type="text" placeholder="City, Country" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email Address</label>
+                                    <input type="email" placeholder="email@example.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone Number</label>
+                                    <input type="tel" placeholder="+1 (555) 000-0000" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Type of Work</label>
+                                    <select required>
+                                        <option value="" disabled selected>Select service type</option>
+                                        <option>Hardware Support</option>
+                                        <option>Network Support</option>
+                                        <option>Software Support</option>
+                                        <option>Infrastructure Management</option>
+                                        <option>Cybersecurity</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Position Required</label>
+                                    <input type="text" placeholder="e.g. Network Engineer" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Contract Type</label>
+                                    <select required>
+                                        <option>Temporary / Contract</option>
+                                        <option>Full-time</option>
+                                        <option>Part-time</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Work Start Date</label>
+                                    <input type="date" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Required Experience Level</label>
+                                    <select required>
+                                        <option>Junior (0-2 years)</option>
+                                        <option>Mid-Level (3-5 years)</option>
+                                        <option>Senior (5+ years)</option>
+                                        <option>Lead / Architect</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Daily Rate Offer (Confidential)</label>
+                                    <input type="text" placeholder="e.g. $500/day">
+                                </div>
+                                <div class="form-group full-width">
+                                    <label>Special Requirements</label>
+                                    <textarea placeholder="Describe any specific certifications or skills needed..."></textarea>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label>Comments</label>
+                                    <textarea placeholder="Additional information..."></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-portal-register">Register as Employer <span>→</span></button>
+                        </form>
+                    </div>
+
+                    <!-- Employee Form -->
+                    <div id="employee-form" class="registration-form">
+                        <form>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>Full Name</label>
+                                    <input type="text" placeholder="Enter your name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email Address</label>
+                                    <input type="email" placeholder="email@example.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone Number</label>
+                                    <input type="tel" placeholder="+1 (555) 000-0000" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Primary IT Skill</label>
+                                    <select required>
+                                        <option value="" disabled selected>Select your main skill</option>
+                                        <option>Hardware Support</option>
+                                        <option>Network Management</option>
+                                        <option>Cloud Infrastructure</option>
+                                        <option>Technical Support (L1/L2/L3)</option>
+                                        <option>Software Deployment</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Qualifications</label>
+                                    <input type="text" placeholder="e.g. CCNA, CompTIA A+, BSc IT" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Experience Level</label>
+                                    <input type="text" placeholder="e.g. 5 years in Enterprise IT" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Availability</label>
+                                    <input type="text" placeholder="e.g. Mon-Fri, 9am - 5pm" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Expected Daily Rate (Confidential)</label>
+                                    <input type="text" placeholder="e.g. $450/day">
+                                </div>
+                                <div class="form-group full-width">
+                                    <label>Unavailable Times</label>
+                                    <input type="text" placeholder="Specific dates or times you cannot work">
+                                </div>
+                                <div class="form-group full-width">
+                                    <label>Special Requirements / Needs</label>
+                                    <textarea placeholder="Describe any specific needs or preferences..."></textarea>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label>Comments</label>
+                                    <textarea placeholder="Anything else we should know?"></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-portal-register">Register as Employee <span>→</span></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // ─── Registration Tab Switcher ───
+        function switchTab(role) {
+            const employerTab = document.querySelector('.portal-tab:nth-child(1)');
+            const employeeTab = document.querySelector('.portal-tab:nth-child(2)');
+            const employerForm = document.getElementById('employer-form');
+            const employeeForm = document.getElementById('employee-form');
+            const indicator = document.querySelector('.tab-indicator');
+
+            if (role === 'employer') {
+                employerTab.classList.add('active');
+                employeeTab.classList.remove('active');
+                employerForm.classList.add('active');
+                employeeForm.classList.remove('active');
+                indicator.style.transform = 'translateX(0)';
+            } else {
+                employeeTab.classList.add('active');
+                employerTab.classList.remove('active');
+                employeeForm.classList.add('active');
+                employerForm.classList.remove('active');
+                indicator.style.transform = 'translateX(100%)';
+            }
+        }
+
+        // ─── Scroll-based fade-in ───
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>

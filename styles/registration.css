@@ -1,0 +1,223 @@
+/* ─── PORTAL REGISTRATION ─── */
+#registration {
+    padding: 6rem 0 10rem;
+    position: relative;
+}
+
+.portal-tabs-container {
+    background: #ffffff;
+    border-radius: 32px;
+    padding: 4rem;
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.03),
+        0 5px 15px rgba(0, 0, 0, 0.01);
+    border: 1px solid var(--gray-200);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.portal-tabs {
+    display: flex;
+    position: relative;
+    background: rgba(15, 23, 42, 0.03);
+    padding: 0.5rem;
+    border-radius: 100px;
+    max-width: 450px;
+    margin: 0 auto 5rem;
+    border: 1px solid rgba(15, 23, 42, 0.05);
+}
+
+.portal-tab {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    border: none;
+    background: transparent;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    z-index: 1;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.02em;
+}
+
+.portal-tab.active {
+    color: #ffffff;
+}
+
+.tab-indicator {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    width: calc(50% - 0.5rem);
+    height: calc(100% - 1rem);
+    background: linear-gradient(135deg, var(--blue-400), var(--blue-500));
+    border-radius: 100px;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+.registration-form {
+    display: none;
+    animation: slideIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.registration-form.active {
+    display: block;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+.form-group label {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--gray-900);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding-left: 0.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 1.1rem 1.5rem;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+    color: var(--gray-900);
+}
+
+.form-group input::placeholder {
+    color: #94a3b8;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--blue-400);
+    background: #ffffff;
+    box-shadow: 
+        0 10px 25px rgba(37, 99, 235, 0.05),
+        0 0 0 4px rgba(37, 99, 235, 0.08);
+    transform: translateY(-2px);
+}
+
+.form-group textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.btn-portal-register {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    width: fit-content;
+    padding: 1rem 3rem;
+    background: #ffffff;
+    border: 1px solid var(--blue-400);
+    border-radius: 100px;
+    color: #334155;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 auto;
+    display: flex;
+}
+
+.btn-portal-register span {
+    transition: transform 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.btn-portal-register:hover {
+    background: var(--blue-50);
+    border-color: var(--blue-500);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.08);
+}
+
+.btn-portal-register:hover span {
+    transform: translateX(5px);
+}
+
+/* ─── SECTION HEADER ─── */
+.section-header {
+    text-align: center;
+    margin-bottom: 5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--gray-900);
+    margin-bottom: 1.5rem;
+}
+
+.text-blue {
+    background: linear-gradient(135deg, var(--blue-400), var(--blue-600));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-sub {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .portal-tabs-container {
+        padding: 2.5rem 1.5rem;
+        border-radius: 24px;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+    }
+    
+    .form-group.full-width {
+        grid-column: span 1;
+    }
+    
+    .portal-tabs {
+        margin-bottom: 3rem;
+    }
+}

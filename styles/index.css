@@ -1,7 +1,7 @@
 /* ─── HERO ─── */
 #hero {
     position: relative;
-    min-height: 100vh;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -326,127 +326,331 @@
 }
 
 
+/* ─── SERVICES REDESIGN ─── */
+#services {
+    position: relative;
+    overflow: hidden;
+}
+
+#services::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
 }
 
 .service-card {
     background: #ffffff;
-    border: 1px solid var(--card-border);
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 24px;
+    padding: 2.5rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    box-shadow: 0 2px 16px rgba(15, 23, 42, 0.07);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--blue-400), var(--blue-600));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(37, 99, 235, 0.3);
-    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.12), 0 0 40px rgba(37, 99, 235, 0.06);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+    border-color: var(--blue-100);
 }
 
-.service-card-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
-}
-
-.service-card-body {
-    padding: 2rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.service-card:hover::after {
+    transform: scaleX(1);
 }
 
 .service-card-icon {
-    width: auto;
-    height: auto;
-    background: none;
-    border: none;
+    width: 64px;
+    height: 64px;
+    background: var(--blue-50);
+    border-radius: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--blue-400);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.75rem;
+    transition: all 0.4s ease;
+}
+
+.service-card:hover .service-card-icon {
+    background: var(--blue-400);
+    color: #ffffff;
+    transform: rotate(-5deg) scale(1.1);
 }
 
 .service-card-icon .material-symbols-rounded {
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 .service-card h3 {
     font-family: 'Manrope', sans-serif;
-    font-size: 1.125rem;
-    font-weight: 700;
+    font-size: 1.25rem;
+    font-weight: 800;
     color: var(--gray-900);
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
 }
 
 .service-card p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--text-muted);
     line-height: 1.6;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
 }
 
 
-.benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-    margin-top: 3rem;
+
+
+/* ─── WHY CHOOSE US REDESIGN (Screenshot Style) ─── */
+#why-choose-us {
+    padding: 5rem 0;
 }
 
-.benefit-card {
-    background: #ffffff;
-    border: 1px solid var(--card-border);
-    border-radius: var(--radius-lg);
-    padding: 2rem;
-    transition: transform 0.3s, box-shadow 0.3s;
+.wcu-header {
+    margin: 0 auto 2.5rem;
+    max-width: 800px;
     text-align: center;
+}
+
+.wcu-pill {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    background: var(--blue-50);
+    border: 1px solid rgba(37, 99, 235, 0.1);
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--blue-400);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+.wcu-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--gray-900);
+}
+
+.text-blue {
+    color: var(--blue-400);
+}
+
+.section-sub {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 1.25rem auto 0;
+    max-width: 600px;
+}
+
+.wcu-bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    gap: 1.5rem;
+}
+
+.wcu-box {
+    border-radius: 20px;
+    padding: 2.5rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.6);
 }
 
-.benefit-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+.wcu-box::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--blue-400), var(--blue-500));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
 }
 
-.benefit-icon {
-    width: 48px;
-    height: 48px;
-    background: rgba(59, 130, 246, 0.1);
-    border-radius: 12px;
+.wcu-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+    border-color: var(--blue-100);
+}
+
+.wcu-box:hover::after {
+    transform: scaleX(1);
+}
+
+.wcu-box--light {
+    background: var(--gray-50);
+    border: 1px solid rgba(226, 232, 240, 0.5);
+}
+
+.wcu-box--dark {
+    background: var(--blue-900);
+    color: #ffffff;
+}
+
+.wcu-box--dark h3 {
+    color: #ffffff !important;
+}
+
+.wcu-box--dark p {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Grid Spans */
+.wcu-box--wide {
+    grid-column: span 3;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2.5rem;
+}
+
+.wcu-box--tall {
+    grid-row: span 2;
+    justify-content: space-between;
+}
+
+/* Icon Circle Style */
+.wcu-icon-circle {
+    width: 64px;
+    height: 64px;
+    background: var(--blue-50);
+    border-radius: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--blue-500);
-    margin-bottom: 1.25rem;
+    color: var(--blue-400);
+    margin-bottom: 0;
+    transition: all 0.4s ease;
+    flex-shrink: 0;
 }
 
-.benefit-icon .material-symbols-rounded {
-    font-size: 1.75rem;
+.wcu-box:hover .wcu-icon-circle {
+    background: var(--blue-400);
+    color: #ffffff;
+    transform: rotate(-5deg) scale(1.1);
 }
 
-.benefit-content h3 {
+.wcu-box--dark .wcu-icon-circle {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+}
+
+.wcu-icon-circle .material-symbols-rounded {
+    font-size: 1.5rem;
+}
+
+/* Content Wrap for Wide Card */
+.wcu-content-wrap {
+    flex: 1;
+}
+
+.wcu-box h3 {
     font-family: 'Manrope', sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--gray-900);
-    margin-bottom: 0.5rem;
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
 }
 
-.benefit-content p {
-    font-size: 0.85rem;
-    color: var(--text-muted);
+.wcu-box p {
+    font-size: 1rem;
     line-height: 1.6;
+    color: var(--text-muted);
+}
+
+/* Dark Card Button */
+.wcu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: var(--green-500);
+    color: #ffffff;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    margin-top: 1rem;
+}
+
+.wcu-btn:hover {
+    background: var(--green-600);
+}
+
+.wcu-btn .material-symbols-rounded {
+    font-size: 1.25rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .wcu-bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .wcu-box--tall {
+        grid-row: span 1;
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .wcu-bento-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .wcu-box--wide,
+    .wcu-box--tall {
+        grid-column: span 1;
+        flex-direction: column;
+    }
+
+    .wcu-box {
+        padding: 2rem;
+    }
 }
 
 .testimonials-grid {
@@ -658,8 +862,23 @@
         grid-template-columns: 1fr 1fr;
     }
 
-    .benefits-grid {
-        grid-template-columns: 1fr 1fr;
+    .wcu-bento {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+    }
+
+    .benefit-card:nth-child(1),
+    .benefit-card:nth-child(2),
+    .benefit-card:nth-child(3),
+    .benefit-card:nth-child(4) {
+        grid-column: span 1;
+        grid-row: span 1;
+        padding: 2.5rem;
+    }
+
+    .benefit-card:nth-child(4) .benefit-content {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
     .testimonials-grid {
