@@ -862,93 +862,83 @@ tbody td {
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1024px) {
-
-  .grid-2,
-  .grid-3 {
-    grid-template-columns: 1fr;
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .page-content {
-    padding: 1.5rem;
-  }
+  .grid-2, .grid-3 { grid-template-columns: 1fr !important; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .page-content { padding: 1.5rem !important; }
 }
 
 @media (max-width: 768px) {
+  body { overflow-x: hidden !important; width: 100% !important; }
+  .main { 
+    margin-left: 0 !important; 
+    width: 100% !important; 
+    max-width: 100vw !important; 
+    overflow-x: hidden !important; 
+  }
   .sidebar {
     transform: translateX(-100%);
     width: 280px;
     box-shadow: 20px 0 60px rgba(0, 0, 0, 0.1);
+    will-change: transform; /* Pre-optimize for animation */
   }
 
   .sidebar.open {
     transform: translateX(0);
   }
 
-  /* Sidebar Overlay on mobile */
   .sidebar-overlay {
-    display: none;
+    display: block;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.4);
     z-index: 90;
-    backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
   }
 
-  .sidebar.open+.sidebar-overlay {
-    display: block;
-  }
-
-  .main {
-    margin-left: 0;
+  .sidebar.open+.sidebar-overlay { 
+    opacity: 1;
+    visibility: visible;
   }
 
   .menu-toggle {
     display: flex;
+    margin-right: auto;
   }
 
   .topbar {
-    padding: 0 1.25rem;
+    padding: 0 1rem !important;
+    width: 100% !important;
+    max-width: 100vw !important;
   }
 
   .topbar-search {
-    display: none;
+    display: none !important;
   }
 
-  /* Hide search bar on small mobile, search icon in actions instead */
-
   .page-content {
-    padding: 1.25rem;
+    padding: 1rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .stats-grid {
-    gap: 1rem;
+    gap: 0.75rem !important;
   }
 
   .stat-card {
-    padding: 1.25rem;
+    padding: 1rem !important;
   }
 
   .stat-value {
-    font-size: 1.75rem;
-  }
-
-  .card-header {
-    padding: 1rem 1.25rem;
-  }
-
-  .card-body {
-    padding: 1.25rem;
+    font-size: 1.5rem !important;
   }
 
   table {
-    min-width: 600px;
+    min-width: 500px !important;
   }
-
-  /* Ensure horizontal scroll for tables */
+  .table-wrap { width: 100% !important; }
 }
 
 @media (max-width: 480px) {
