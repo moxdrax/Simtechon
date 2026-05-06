@@ -41,7 +41,7 @@
                             <label>Password</label>
                             <input type="password" required>
                         </div>
-                        
+
                         <div class="login-options">
                             <label class="remember-me">
                                 <input type="checkbox">
@@ -64,16 +64,47 @@
     <div id="footer-placeholder"></div>
 
     <script>
-        // ─── Scroll-based fade-in ───
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    e.target.classList.add('visible');
-                }
-            });
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
         }, { threshold: 0.1 });
-
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // Role-based routing
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const email = document.querySelector('input[type="email"]').value.toLowerCase();
+            const password = document.querySelector('input[type="password"]').value;
+            
+            // Basic password check for the prototype
+            const correctPassword = 'simtechon@123';
+            
+            if (password !== correctPassword) {
+                alert('Invalid password. Please use: simtechon@123');
+                return;
+            }
+
+            // Precise routing based on email ID
+            if (email.includes('admin@simtechon.com')) {
+                window.location.href = 'admin-dashboard.html';
+            } else if (email.includes('hr@simtechon.com')) {
+                window.location.href = 'hr-dashboard.html';
+            } else if (email.includes('ceo@simtechon.com')) {
+                window.location.href = 'ceo-dashboard.html';
+            } else if (email.includes('employer@simtechon.com')) {
+                window.location.href = 'employer-dashboard.html';
+            } else if (email.includes('employee@simtechon.com')) {
+                window.location.href = 'employee-dashboard.html';
+            } else {
+                // Fallback for other emails (e.g., using the role selector if available)
+                const role = document.getElementById('roleSelect')?.value;
+                const routes = { admin: 'admin-dashboard.html', hr: 'hr-dashboard.html', ceo: 'ceo-dashboard.html', employer: 'employer-dashboard.html', employee: 'employee-dashboard.html' };
+                if (role && routes[role]) {
+                    window.location.href = routes[role];
+                } else {
+                    alert('Please use a registered company email or select a role.');
+                }
+            }
+        });
     </script>
 </body>
 

@@ -115,15 +115,22 @@
     }
 
     .nav-login {
-        text-decoration: none;
-        color: var(--gray-900);
+        background: transparent;
+        color: var(--blue-400);
+        border: 2px solid var(--blue-400);
+        padding: 0.5rem 1.4rem;
+        border-radius: 10px;
+        font-family: 'Inter', sans-serif;
         font-size: 0.875rem;
         font-weight: 600;
-        transition: color 0.2s;
+        cursor: pointer;
+        transition: all 0.2s;
+        text-decoration: none;
+        display: inline-block;
     }
 
     .nav-login:hover {
-        color: var(--blue-400);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
     }
 
     .nav-signup {
@@ -131,7 +138,7 @@
         color: #fff;
         border: none;
         padding: 0.55rem 1.4rem;
-        border-radius: 50px;
+        border-radius: 10px;
         font-family: 'Inter', sans-serif;
         font-size: 0.875rem;
         font-weight: 600;

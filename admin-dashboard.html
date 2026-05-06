@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Admin Dashboard | SimtechON</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@700;800;900&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles/dashboard.css"/>
+<link rel="stylesheet" href="styles/admin-dashboard.css"/>
+<style>
+  .material-symbols-rounded { font-family:'Material Symbols Rounded'; font-style:normal; font-size:20px; line-height:1; letter-spacing:normal; text-transform:none; display:inline-block; white-space:nowrap; word-wrap:normal; vertical-align:middle; }
+  .nav-icon .material-symbols-rounded { font-size:18px; }
+  .stat-icon .material-symbols-rounded { font-size:22px; }
+  .list-icon .material-symbols-rounded { font-size:18px; }
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <a class="brand-logo" href="index.html">Simtech<span>ON</span></a>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-group-label">Overview</div>
+    <a href="#" class="active"><span class="nav-icon"><span class="material-symbols-rounded">dashboard</span></span> Dashboard</a>
+    <a href="#"><span class="nav-icon"><span class="material-symbols-rounded">bar_chart</span></span> Analytics</a>
+
+    <div class="nav-group-label">People</div>
+    <a href="#"><span class="nav-icon"><span class="material-symbols-rounded">business</span></span> Employers <span class="nav-badge">42</span></a>
+    <a href="#"><span class="nav-icon"><span class="material-symbols-rounded">group</span></span> Employees <span class="nav-badge">318</span></a>
+    <a href="#"><span class="nav-icon"><span class="material-symbols-rounded">manage_accounts</span></span> HR Managers</a>
+
+    <div class="nav-group-label">Jobs</div>
+    <a href="#"><span class="nav-icon"><span class="material-symbols-rounded">work</span></span> Job Postings <span class="nav-badge green">24</span></a>
+    <a href="#"><span class="nav-icon"><span class="material-symbols-rounded">description</span></span> Applications <span class="nav-badge red">7</span></a>
+    <a href="#"><span class="nav-icon"><span class="material-symbols-rounded">folder_open</span></span> Documents</a>
+
+    <div class="nav-group-label">System</div>
+    <!-- <a href="#"><span class="nav-icon"><span class="material-symbols-rounded">download</span></span> Reports</a> -->
+    <a href="#"><span class="nav-icon"><span class="material-symbols-rounded">settings</span></span> Settings</a>
+    <!-- <a href="#"><span class="nav-icon"><span class="material-symbols-rounded">lock</span></span> Permissions</a> -->
+  </nav>
+  <div class="sidebar-footer">
+    <a href="login.html"><span class="material-symbols-rounded">logout</span> Sign Out</a>
+  </div>
+</aside>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- MAIN -->
+<div class="main">
+  <header class="topbar">
+    <button class="menu-toggle" id="menuToggle"><span class="material-symbols-rounded">menu</span></button>
+    <div class="topbar-search">
+      <span class="icon"><span class="material-symbols-rounded" style="font-size:16px;">search</span></span>
+      <input type="text" placeholder="Search records…" id="globalSearch"/>
+    </div>
+    <div class="topbar-actions">
+      <a class="icon-btn" href="#" title="Notifications"><span class="material-symbols-rounded">notifications</span><span class="notif-dot"></span></a>
+      <a class="icon-btn" href="#" title="Downloads"><span class="material-symbols-rounded">download</span></a>
+    </div>
+  </header>
+
+  <div class="page-content">
+
+    <!-- STATS -->
+    <div class="stats-grid">
+      <div class="stat-card blue">
+        <div class="stat-icon blue"><span class="material-symbols-rounded">business</span></div>
+        <div class="stat-value">42</div>
+        <div class="stat-label">Total Employers</div>
+        <div class="stat-change up">▲ 8% this month</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-icon green"><span class="material-symbols-rounded">group</span></div>
+        <div class="stat-value">318</div>
+        <div class="stat-label">Total Employees</div>
+        <div class="stat-change up">▲ 12% this month</div>
+      </div>
+      <div class="stat-card gold">
+        <div class="stat-icon gold"><span class="material-symbols-rounded">work</span></div>
+        <div class="stat-value">24</div>
+        <div class="stat-label">Active Job Posts</div>
+        <div class="stat-change up">▲ 3 new today</div>
+      </div>
+      <div class="stat-card red">
+        <div class="stat-icon red"><span class="material-symbols-rounded">description</span></div>
+        <div class="stat-value">187</div>
+        <div class="stat-label">Applications</div>
+        <div class="stat-change down">▼ 5% pending</div>
+      </div>
+      <div class="stat-card purple">
+        <div class="stat-icon purple"><span class="material-symbols-rounded">folder_open</span></div>
+        <div class="stat-value">94</div>
+        <div class="stat-label">Documents</div>
+        <div class="stat-change up">▲ 6 uploaded</div>
+      </div>
+    </div>
+
+    <!-- ROW 1 -->
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Recent Applications</span>
+          <button class="btn btn-primary btn-sm" onclick="downloadReport('applications')">
+            <span class="material-symbols-rounded" style="font-size:14px;">download</span> Export
+          </button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Applicant</th><th>Job Role</th><th>Employer</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody id="applicationsTable">
+              <tr><td>Arjun Mehta</td><td>Network Engineer</td><td>TechCorp Ltd</td><td><span class="badge badge-gold">Review</span></td><td><button class="btn btn-ghost btn-sm" onclick="viewRecord('Arjun Mehta')">View</button> <button class="btn btn-danger btn-sm" onclick="deleteRecord('Arjun Mehta')">Delete</button></td></tr>
+              <tr><td>Priya Sharma</td><td>IT Support</td><td>InfoSys Inc</td><td><span class="badge badge-green">Approved</span></td><td><button class="btn btn-ghost btn-sm" onclick="viewRecord('Priya Sharma')">View</button> <button class="btn btn-danger btn-sm" onclick="deleteRecord('Priya Sharma')">Delete</button></td></tr>
+              <tr><td>Rohan Das</td><td>Software Dev</td><td>Nexus Tech</td><td><span class="badge badge-blue">Shortlisted</span></td><td><button class="btn btn-ghost btn-sm" onclick="viewRecord('Rohan Das')">View</button> <button class="btn btn-danger btn-sm" onclick="deleteRecord('Rohan Das')">Delete</button></td></tr>
+              <tr><td>Anita Verma</td><td>Hardware Tech</td><td>TechCorp Ltd</td><td><span class="badge badge-red">Rejected</span></td><td><button class="btn btn-ghost btn-sm" onclick="viewRecord('Anita Verma')">View</button> <button class="btn btn-danger btn-sm" onclick="deleteRecord('Anita Verma')">Delete</button></td></tr>
+              <tr><td>Kiran Patel</td><td>Cloud Admin</td><td>CloudBase Co</td><td><span class="badge badge-gold">Review</span></td><td><button class="btn btn-ghost btn-sm" onclick="viewRecord('Kiran Patel')">View</button> <button class="btn btn-danger btn-sm" onclick="deleteRecord('Kiran Patel')">Delete</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><span class="card-title">Application Status</span></div>
+        <div class="card-body">
+          <div class="donut-wrap" style="flex-direction:column;align-items:center;gap:1rem;">
+            <div class="donut-ring"></div>
+            <div class="donut-labels">
+              <div class="donut-item"><div class="donut-dot" style="background:var(--accent)"></div><span style="color:var(--text-muted)">Shortlisted</span><span style="margin-left:auto;font-weight:600">55%</span></div>
+              <div class="donut-item"><div class="donut-dot" style="background:var(--green)"></div><span style="color:var(--text-muted)">Approved</span><span style="margin-left:auto;font-weight:600">20%</span></div>
+              <div class="donut-item"><div class="donut-dot" style="background:var(--gold)"></div><span style="color:var(--text-muted)">Review</span><span style="margin-left:auto;font-weight:600">13%</span></div>
+              <div class="donut-item"><div class="donut-dot" style="background:#cbd5e1"></div><span style="color:var(--text-muted)">Rejected</span><span style="margin-left:auto;font-weight:600">12%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROW 2 -->
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Employer Records</span>
+          <button class="btn btn-primary btn-sm" onclick="downloadReport('employers')">
+            <span class="material-symbols-rounded" style="font-size:14px;">download</span> Export
+          </button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Company</th><th>Industry</th><th>Posts</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td>TechCorp Ltd</td><td>IT Services</td><td>6</td><td><span class="badge badge-green">Active</span></td><td><button class="btn btn-ghost btn-sm" onclick="editRecord('TechCorp Ltd')">Edit</button> <button class="btn btn-danger btn-sm" onclick="deleteRecord('TechCorp Ltd')">Delete</button></td></tr>
+              <tr><td>InfoSys Inc</td><td>Software</td><td>4</td><td><span class="badge badge-green">Active</span></td><td><button class="btn btn-ghost btn-sm" onclick="editRecord('InfoSys Inc')">Edit</button> <button class="btn btn-danger btn-sm" onclick="deleteRecord('InfoSys Inc')">Delete</button></td></tr>
+              <tr><td>Nexus Tech</td><td>Cloud</td><td>3</td><td><span class="badge badge-gold">Pending</span></td><td><button class="btn btn-ghost btn-sm" onclick="editRecord('Nexus Tech')">Edit</button> <button class="btn btn-danger btn-sm" onclick="deleteRecord('Nexus Tech')">Delete</button></td></tr>
+              <tr><td>CloudBase Co</td><td>Infrastructure</td><td>5</td><td><span class="badge badge-green">Active</span></td><td><button class="btn btn-ghost btn-sm" onclick="editRecord('CloudBase Co')">Edit</button> <button class="btn btn-danger btn-sm" onclick="deleteRecord('CloudBase Co')">Delete</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Job Postings</span>
+          <button class="btn btn-primary btn-sm" onclick="downloadReport('jobs')">
+            <span class="material-symbols-rounded" style="font-size:14px;">download</span> Export
+          </button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Title</th><th>Type</th><th>Apps</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td>Network Engineer</td><td>Full-time</td><td>32</td><td><span class="badge badge-green">Open</span></td><td><button class="btn btn-ghost btn-sm" onclick="editRecord('Network Engineer')">Edit</button> <button class="btn btn-danger btn-sm" onclick="deleteRecord('Network Engineer')">Close</button></td></tr>
+              <tr><td>IT Support L2</td><td>Contract</td><td>18</td><td><span class="badge badge-green">Open</span></td><td><button class="btn btn-ghost btn-sm" onclick="editRecord('IT Support L2')">Edit</button> <button class="btn btn-danger btn-sm" onclick="deleteRecord('IT Support L2')">Close</button></td></tr>
+              <tr><td>Cloud Architect</td><td>Full-time</td><td>41</td><td><span class="badge badge-gold">Review</span></td><td><button class="btn btn-ghost btn-sm" onclick="editRecord('Cloud Architect')">Edit</button> <button class="btn btn-danger btn-sm" onclick="deleteRecord('Cloud Architect')">Close</button></td></tr>
+              <tr><td>Cyber Analyst</td><td>Part-time</td><td>9</td><td><span class="badge badge-red">Closed</span></td><td><button class="btn btn-ghost btn-sm" onclick="editRecord('Cyber Analyst')">Edit</button> <button class="btn btn-danger btn-sm" onclick="deleteRecord('Cyber Analyst')">Delete</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROW 3 -->
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Recent Documents</span>
+          <button class="btn btn-ghost btn-sm" onclick="downloadReport('documents')">View All</button>
+        </div>
+        <div class="card-body">
+          <div class="list-item">
+            <div class="list-icon" style="background:rgba(37,99,235,0.1);color:var(--accent)"><span class="material-symbols-rounded">article</span></div>
+            <div class="list-text"><div class="list-title">Employment Contract — Arjun Mehta</div><div class="list-sub">Uploaded 2 hrs ago · PDF</div></div>
+            <button class="btn btn-ghost btn-sm" onclick="downloadDoc('Arjun Mehta Contract')"><span class="material-symbols-rounded" style="font-size:16px;">download</span></button>
+          </div>
+          <div class="list-item">
+            <div class="list-icon" style="background:rgba(5,150,105,0.1);color:var(--green)"><span class="material-symbols-rounded">receipt_long</span></div>
+            <div class="list-text"><div class="list-title">Offer Letter — Priya Sharma</div><div class="list-sub">Uploaded yesterday · DOCX</div></div>
+            <button class="btn btn-ghost btn-sm" onclick="downloadDoc('Priya Offer Letter')"><span class="material-symbols-rounded" style="font-size:16px;">download</span></button>
+          </div>
+          <div class="list-item">
+            <div class="list-icon" style="background:rgba(217,119,6,0.1);color:var(--gold)"><span class="material-symbols-rounded">bar_chart</span></div>
+            <div class="list-text"><div class="list-title">Q1 Payroll Report</div><div class="list-sub">3 days ago · XLSX</div></div>
+            <button class="btn btn-ghost btn-sm" onclick="downloadDoc('Q1 Payroll')"><span class="material-symbols-rounded" style="font-size:16px;">download</span></button>
+          </div>
+          <div class="list-item">
+            <div class="list-icon" style="background:rgba(124,58,237,0.1);color:#7c3aed"><span class="material-symbols-rounded">gavel</span></div>
+            <div class="list-text"><div class="list-title">NDA — Nexus Tech</div><div class="list-sub">1 week ago · PDF</div></div>
+            <button class="btn btn-ghost btn-sm" onclick="downloadDoc('Nexus NDA')"><span class="material-symbols-rounded" style="font-size:16px;">download</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><span class="card-title">Monthly Activity</span></div>
+        <div class="card-body">
+          <div class="progress-wrap">
+            <div class="progress-label"><span>New Employers</span><span>42</span></div>
+            <div class="progress-bar"><div class="progress-fill fill-blue" style="width:70%"></div></div>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-label"><span>New Employees</span><span>318</span></div>
+            <div class="progress-bar"><div class="progress-fill fill-green" style="width:85%"></div></div>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-label"><span>Job Posts</span><span>24</span></div>
+            <div class="progress-bar"><div class="progress-fill fill-gold" style="width:55%"></div></div>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-label"><span>Applications</span><span>187</span></div>
+            <div class="progress-bar"><div class="progress-fill fill-red" style="width:90%"></div></div>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-label"><span>Documents</span><span>94</span></div>
+            <div class="progress-bar"><div class="progress-fill fill-purple" style="width:60%"></div></div>
+          </div>
+          <div style="margin-top:1.5rem;display:flex;gap:0.75rem;flex-wrap:wrap;">
+            <button class="btn btn-primary" onclick="downloadReport('full')">
+              <span class="material-symbols-rounded" style="font-size:16px;">download</span> Full Report
+            </button>
+            <button class="btn btn-ghost" onclick="downloadReport('summary')">Summary PDF</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODAL -->
+<div id="modal" style="display:none;position:fixed;inset:0;background:rgba(15,23,42,0.4);z-index:999;align-items:center;justify-content:center;">
+  <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:2rem;max-width:420px;width:90%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.15);">
+    <button onclick="closeModal()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:#94a3b8;font-size:1.4rem;cursor:pointer;line-height:1;">×</button>
+    <h3 id="modalTitle" style="font-family:'Manrope',sans-serif;font-weight:800;color:#0f172a;margin-bottom:0.75rem;"></h3>
+    <p id="modalBody" style="color:#475569;font-size:0.9rem;line-height:1.6;"></p>
+    <div style="margin-top:1.5rem;display:flex;gap:0.75rem;">
+      <button class="btn btn-primary" onclick="closeModal()">Confirm</button>
+      <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const sidebar = document.getElementById('sidebar');
+  const sidebarOverlay = document.getElementById('sidebarOverlay');
+  const menuToggle = document.getElementById('menuToggle');
+
+  menuToggle.addEventListener('click', () => {
+    sidebar.classList.add('open');
+  });
+
+  sidebarOverlay.addEventListener('click', () => {
+    sidebar.classList.remove('open');
+  });
+
+  function showModal(title, body) {
+    document.getElementById('modalTitle').textContent = title;
+    document.getElementById('modalBody').textContent = body;
+    document.getElementById('modal').style.display = 'flex';
+  }
+  function closeModal() { document.getElementById('modal').style.display = 'none'; }
+
+  function viewRecord(n)   { showModal('Record: ' + n, 'Viewing full profile details for ' + n + '. All linked documents, applications, and activity logs are available.'); }
+  function editRecord(n)   { showModal('Edit: ' + n, 'You can now edit the details for ' + n + '. Changes will be saved to the database immediately.'); }
+  function deleteRecord(n) { showModal('Delete: ' + n, 'Are you sure you want to permanently delete the record for ' + n + '? This action cannot be undone.'); }
+  function downloadReport(t) { showModal('Downloading Report', 'Generating ' + t + ' report… Your download will begin shortly.'); }
+  function downloadDoc(n)  { showModal('Download Document', 'Preparing "' + n + '" for download.'); }
+
+  document.getElementById('globalSearch').addEventListener('input', function() {
+    const q = this.value.toLowerCase();
+    document.querySelectorAll('tbody tr').forEach(row => {
+      row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  });
+
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.progress-fill').forEach(el => {
+      const w = el.style.width; el.style.width = '0';
+      setTimeout(() => el.style.width = w, 200);
+    });
+  });
+</script>
+</body>
+</html>

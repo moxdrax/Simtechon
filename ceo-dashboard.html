@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>CEO Dashboard | SimtechON</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@700;800;900&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles/dashboard.css"/>
+<link rel="stylesheet" href="styles/ceo-dashboard.css"/>
+<style>
+  .material-symbols-rounded { font-family:'Material Symbols Rounded'; font-style:normal; font-size:20px; line-height:1; vertical-align:middle; display:inline-block; }
+</style>
+</head>
+<body>
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <a class="brand-logo" href="index.html">Simtech<span>ON</span></a>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-group-label">Executive Overview</div>
+    <a href="#" class="active"><span class="nav-icon"><span class="material-symbols-rounded">dashboard</span></span> Dashboard</a>
+    <a href="#"><span class="nav-icon"><span class="material-symbols-rounded">insights</span></span> Business Insights</a>
+    <a href="#"><span class="nav-icon"><span class="material-symbols-rounded">show_chart</span></span> Growth Analytics</a>
+    
+    <div class="nav-group-label">Global Access</div>
+    <a href="#"><span class="nav-icon"><span class="material-symbols-rounded">business</span></span> All Employers</a>
+    <a href="#"><span class="nav-icon"><span class="material-symbols-rounded">groups</span></span> All Employees</a>
+    <a href="#"><span class="nav-icon"><span class="material-symbols-rounded">folder_open</span></span> Full Record Access</a>
+
+    <div class="nav-group-label">Operations</div>
+    <a href="#"><span class="nav-icon"><span class="material-symbols-rounded">payments</span></span> Revenue & Payroll</a>
+    <a href="#"><span class="nav-icon"><span class="material-symbols-rounded">assignment</span></span> Reports Archive</a>
+    <a href="#"><span class="nav-icon"><span class="material-symbols-rounded">security</span></span> System Audit</a>
+  </nav>
+  <div class="sidebar-footer">
+    <a href="login.html"><span class="material-symbols-rounded">logout</span> Sign Out</a>
+  </div>
+</aside>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="main">
+  <header class="topbar">
+    <button class="menu-toggle" id="menuToggle"><span class="material-symbols-rounded">menu</span></button>
+    <div class="topbar-search">
+      <span class="icon"><span class="material-symbols-rounded" style="font-size:16px;">search</span></span>
+      <input type="text" placeholder="Global search across all records…" id="globalSearch"/>
+    </div>
+    <div class="topbar-actions">
+      <a class="icon-btn" href="#" title="System Notifications"><span class="material-symbols-rounded">notifications</span><span class="notif-dot"></span></a>
+      <a class="icon-btn" href="#" title="Export Reports"><span class="material-symbols-rounded">download</span></a>
+    </div>
+  </header>
+
+  <div class="page-content">
+    <div class="stats-grid">
+      <div class="stat-card gold">
+        <div class="stat-icon gold"><span class="material-symbols-rounded">trending_up</span></div>
+        <div class="stat-value">₹1.2M</div>
+        <div class="stat-label">Monthly Revenue</div>
+        <div class="stat-change up">▲ 22% this quarter</div>
+      </div>
+      <div class="stat-card blue">
+        <div class="stat-icon blue"><span class="material-symbols-rounded">business</span></div>
+        <div class="stat-value">42</div>
+        <div class="stat-label">Partner Companies</div>
+        <div class="stat-change up">▲ 4 new this month</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-icon green"><span class="material-symbols-rounded">group_add</span></div>
+        <div class="stat-value">318</div>
+        <div class="stat-label">Total Talent Pool</div>
+        <div class="stat-change up">▲ 45 onboarding</div>
+      </div>
+      <div class="stat-card purple">
+        <div class="stat-icon purple"><span class="material-symbols-rounded">verified_user</span></div>
+        <div class="stat-value">98.4%</div>
+        <div class="stat-label">Placement Success</div>
+        <div class="stat-change up">▲ 2.1% increase</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header"><span class="card-title">Placement Pipeline Overview</span></div>
+        <div class="card-body">
+          <div class="progress-wrap">
+            <div class="progress-label"><span>Shortlisted</span><span>124</span></div>
+            <div class="progress-bar"><div class="progress-fill fill-blue" style="width:75%"></div></div>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-label"><span>Interviews Ongoing</span><span>42</span></div>
+            <div class="progress-bar"><div class="progress-fill fill-gold" style="width:45%"></div></div>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-label"><span>Final Offers</span><span>18</span></div>
+            <div class="progress-bar"><div class="progress-fill fill-green" style="width:25%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><span class="card-title">Top Partnering Companies</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Company</th><th>Hires</th><th>Active Posts</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>TechCorp Ltd</td><td>18</td><td>6</td><td><span class="badge badge-green">Premium</span></td></tr>
+              <tr><td>InfoSys Inc</td><td>12</td><td>4</td><td><span class="badge badge-green">Premium</span></td></tr>
+              <tr><td>Nexus Tech</td><td>9</td><td>3</td><td><span class="badge badge-blue">Verified</span></td></tr>
+              <tr><td>CloudBase Co</td><td>7</td><td>5</td><td><span class="badge badge-blue">Verified</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const sidebar = document.getElementById('sidebar');
+  const sidebarOverlay = document.getElementById('sidebarOverlay');
+  const menuToggle = document.getElementById('menuToggle');
+
+  menuToggle.addEventListener('click', () => {
+    sidebar.classList.add('open');
+  });
+
+  sidebarOverlay.addEventListener('click', () => {
+    sidebar.classList.remove('open');
+  });
+</script>
+</body>
+</html>
