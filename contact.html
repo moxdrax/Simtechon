@@ -2,198 +2,199 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us | SimtechON</title>
-  <meta name="description"
-    content="Get in touch with SimtechON for IT support, queries, or project discussions. We're based in Dublin 15, available 9am-6pm." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@600;700;800;900&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="styles/base.css">
-  <link rel="stylesheet" href="styles/header.css">
-  <link rel="stylesheet" href="styles/footer.css">
-  <link rel="stylesheet" href="styles/contact.css">
-  <script src="scripts/component-loader.js" defer></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | SimtechON</title>
+    <meta name="description"
+        content="Get in touch with SimtechON for IT support, queries, or project discussions. We're based in Dublin 15, available 9am-6pm." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/contact.css">
+    <script src="scripts/component-loader.js" defer></script>
 </head>
 
 <body>
-  <div id="header-placeholder"></div>
+    <div id="header-placeholder"></div>
 
-  <!-- ─── HERO + CONTACT FORM ─── -->
-  <section id="hero-contact">
-    <div class="container hero-contact-inner">
-      <div class="hero-contact-text fade-up">
-        <h1>Let's Build Your<br /><span>Digital Future</span></h1>
-        <p>Whether you have a quick question or a complex project in mind, our team of experts is ready to help you
-          scale and secure your IT infrastructure.</p>
-      </div>
-      <div class="contact-card fade-up fade-up-d1" id="contact-form">
-        <form onsubmit="return false;">
-          <div class="form-grid">
-            <div class="form-group">
-              <input type="text" id="cf-name" placeholder="Enter your name" required />
+    <!-- ─── HERO + CONTACT FORM ─── -->
+    <section id="hero-contact">
+        <div class="container hero-contact-inner">
+            <div class="hero-contact-text fade-up">
+                <h1>Let's Build Your<br /><span>Digital Future</span></h1>
+                <p>Whether you have a quick question or a complex project in mind, our team of experts is ready to help
+                    you
+                    scale and secure your IT infrastructure.</p>
             </div>
-            <div class="form-group">
-              <input type="email" id="cf-email" placeholder="Enter your email" required />
+            <div class="contact-card fade-up fade-up-d1" id="contact-form">
+                <form onsubmit="return false;">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <input type="text" id="cf-name" placeholder="Enter your name" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="cf-email" placeholder="Enter your email" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cf-service">Enquiry for</label>
+                        <div class="custom-select-wrapper">
+                            <div class="custom-select">
+                                <div class="custom-select-trigger">
+                                    <span>Select a service</span>
+                                    <span class="material-symbols-rounded">expand_more</span>
+                                </div>
+                                <div class="custom-options">
+                                    <span class="custom-option" data-value="hardware">Hardware Support</span>
+                                    <span class="custom-option" data-value="network">Network Support</span>
+                                    <span class="custom-option" data-value="software">Software Support</span>
+                                    <span class="custom-option" data-value="manpower">IT Manpower Supply</span>
+                                    <span class="custom-option" data-value="projects">Project Undertaking</span>
+                                    <span class="custom-option" data-value="remote">Remote Support</span>
+                                    <span class="custom-option" data-value="onsite">Onsite Support</span>
+                                </div>
+                            </div>
+                            <input type="hidden" name="service" id="cf-service-value">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="cf-subject" placeholder="Enter subject" required />
+                    </div>
+                    <div class="form-group">
+                        <textarea id="cf-message" placeholder="Write your message here" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit" id="cf-send">Send Message &rarr;</button>
+                </form>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="cf-service">Enquiry for</label>
-            <div class="custom-select-wrapper">
-              <div class="custom-select">
-                <div class="custom-select-trigger">
-                  <span>Select a service</span>
-                  <span class="material-symbols-rounded">expand_more</span>
-                </div>
-                <div class="custom-options">
-                  <span class="custom-option" data-value="hardware">Hardware Support</span>
-                  <span class="custom-option" data-value="network">Network Support</span>
-                  <span class="custom-option" data-value="software">Software Support</span>
-                  <span class="custom-option" data-value="manpower">IT Manpower Supply</span>
-                  <span class="custom-option" data-value="projects">Project Undertaking</span>
-                  <span class="custom-option" data-value="remote">Remote Support</span>
-                  <span class="custom-option" data-value="onsite">Onsite Support</span>
-                </div>
-              </div>
-              <input type="hidden" name="service" id="cf-service-value">
-            </div>
-          </div>
-          <div class="form-group">
-            <input type="text" id="cf-subject" placeholder="Enter subject" required />
-          </div>
-          <div class="form-group">
-            <textarea id="cf-message" placeholder="Write your message here" required></textarea>
-          </div>
-          <button type="submit" class="btn-submit" id="cf-send">Send Message &rarr;</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- OUR LOCATION -->
-  <section id="location">
-    <div class="container">
-      <div class="location-grid">
-        <div class="location-info fade-up">
-          <span class="section-label">Where to find us</span>
-          <h2>Our Location</h2>
-          <p>Find us in the heart of Ireland, ready to support your IT needs wherever you are.</p>
-
-          <div class="loc-detail">
-            <div class="loc-detail-icon">
-              <span class="material-symbols-rounded filled">location_on</span>
-            </div>
-            <div class="loc-detail-body">
-              <strong>Address</strong>
-              <span>Dublin 15, Ireland</span>
-            </div>
-          </div>
-
-          <div class="loc-detail">
-            <div class="loc-detail-icon">
-              <span class="material-symbols-rounded filled">call</span>
-            </div>
-            <div class="loc-detail-body">
-              <strong>Phone Numbers</strong>
-              <span>+353 (0) 1 123 4567</span><br />
-            </div>
-          </div>
-
-          <div class="loc-detail">
-            <div class="loc-detail-icon">
-              <span class="material-symbols-rounded filled">mail</span>
-            </div>
-            <div class="loc-detail-body">
-              <strong>Email</strong>
-              <span>support@simtechon.com</span>
-            </div>
-          </div>
-
-          <div class="social-links-wrap">
-            <strong>Follow Us</strong>
-            <div class="social-grid">
-              <a href="#" class="social-link" title="LinkedIn">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
-                </svg>
-              </a>
-              <a href="#" class="social-link" title="Facebook">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7h-2.54v-2.9h2.54V9.82c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02z" />
-                </svg>
-              </a>
-              <a href="#" class="social-link" title="Twitter">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.48.75 2.78 1.89 3.54-.7-.02-1.35-.21-1.92-.53v.05c0 2.06 1.47 3.78 3.42 4.17-.36.1-.73.15-1.12.15-.27 0-.54-.03-.8-.08.54 1.69 2.11 2.93 3.97 2.96-1.45 1.14-3.29 1.82-5.29 1.82-.34 0-.68-.02-1.02-.06C3.18 20.29 5.4 21 7.77 21 15.42 21 19.61 14.67 19.61 9.18v-.54c.81-.59 1.52-1.32 2.08-2.16z" />
-                </svg>
-              </a>
-              <a href="#" class="social-link" title="Instagram">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
-                </svg>
-              </a>
-            </div>
-          </div>
         </div>
+    </section>
 
-        <div class="map-wrap fade-up fade-up-d1">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d38126.34610765784!2d-6.440168!3d53.39505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670e8b8ac3cbe1%3A0xa00c7a9973171a0!2sDublin%2015%2C%20Dublin%2C%20Ireland!5e0!3m2!1sen!2sie!4v1680000000000"
-            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            title="SimtechON Office Location - Dublin 15"></iframe>
+    <!-- OUR LOCATION -->
+    <section id="location">
+        <div class="container">
+            <div class="location-grid">
+                <div class="location-info fade-up">
+                    <span class="section-label">Where to find us</span>
+                    <h2>Our Location</h2>
+                    <p>Find us in the heart of Ireland, ready to support your IT needs wherever you are.</p>
+
+                    <div class="loc-detail">
+                        <div class="loc-detail-icon">
+                            <span class="material-symbols-rounded filled">location_on</span>
+                        </div>
+                        <div class="loc-detail-body">
+                            <strong>Address</strong>
+                            <span>Dublin 15, Ireland</span>
+                        </div>
+                    </div>
+
+                    <div class="loc-detail">
+                        <div class="loc-detail-icon">
+                            <span class="material-symbols-rounded filled">call</span>
+                        </div>
+                        <div class="loc-detail-body">
+                            <strong>Phone Numbers</strong>
+                            <span>+353 (0) 1 123 4567</span><br />
+                        </div>
+                    </div>
+
+                    <div class="loc-detail">
+                        <div class="loc-detail-icon">
+                            <span class="material-symbols-rounded filled">mail</span>
+                        </div>
+                        <div class="loc-detail-body">
+                            <strong>Email</strong>
+                            <span>info@simtechon.com</span>
+                        </div>
+                    </div>
+
+                    <div class="social-links-wrap">
+                        <strong>Follow Us</strong>
+                        <div class="social-grid">
+                            <a href="#" class="social-link" title="LinkedIn">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" title="Facebook">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7h-2.54v-2.9h2.54V9.82c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02z" />
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" title="Twitter">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.48.75 2.78 1.89 3.54-.7-.02-1.35-.21-1.92-.53v.05c0 2.06 1.47 3.78 3.42 4.17-.36.1-.73.15-1.12.15-.27 0-.54-.03-.8-.08.54 1.69 2.11 2.93 3.97 2.96-1.45 1.14-3.29 1.82-5.29 1.82-.34 0-.68-.02-1.02-.06C3.18 20.29 5.4 21 7.77 21 15.42 21 19.61 14.67 19.61 9.18v-.54c.81-.59 1.52-1.32 2.08-2.16z" />
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" title="Instagram">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-wrap fade-up fade-up-d1">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d38126.34610765784!2d-6.440168!3d53.39505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670e8b8ac3cbe1%3A0xa00c7a9973171a0!2sDublin%2015%2C%20Dublin%2C%20Ireland!5e0!3m2!1sen!2sie!4v1680000000000"
+                        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                        title="SimtechON Office Location - Dublin 15"></iframe>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <div id="footer-placeholder"></div>
+    <div id="footer-placeholder"></div>
 
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-    // ─── Custom Dropdown Logic ───
-    const selectWrapper = document.querySelector('.custom-select-wrapper');
-    const select = selectWrapper.querySelector('.custom-select');
-    const trigger = select.querySelector('.custom-select-trigger');
-    const options = select.querySelectorAll('.custom-option');
-    const hiddenInput = selectWrapper.querySelector('#cf-service-value');
+        // ─── Custom Dropdown Logic ───
+        const selectWrapper = document.querySelector('.custom-select-wrapper');
+        const select = selectWrapper.querySelector('.custom-select');
+        const trigger = select.querySelector('.custom-select-trigger');
+        const options = select.querySelectorAll('.custom-option');
+        const hiddenInput = selectWrapper.querySelector('#cf-service-value');
 
-    trigger.addEventListener('click', (e) => {
-      select.classList.toggle('open');
-      e.stopPropagation();
-    });
+        trigger.addEventListener('click', (e) => {
+            select.classList.toggle('open');
+            e.stopPropagation();
+        });
 
-    options.forEach(option => {
-      option.addEventListener('click', () => {
-        // Remove selected class from others
-        options.forEach(opt => opt.classList.remove('selected'));
-        // Add selected class to this
-        option.classList.add('selected');
-        // Update trigger text
-        trigger.querySelector('span').textContent = option.textContent;
-        // Update hidden input value
-        hiddenInput.value = option.getAttribute('data-value');
-        // Close select
-        select.classList.remove('open');
-      });
-    });
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove selected class from others
+                options.forEach(opt => opt.classList.remove('selected'));
+                // Add selected class to this
+                option.classList.add('selected');
+                // Update trigger text
+                trigger.querySelector('span').textContent = option.textContent;
+                // Update hidden input value
+                hiddenInput.value = option.getAttribute('data-value');
+                // Close select
+                select.classList.remove('open');
+            });
+        });
 
-    // Close when clicking outside
-    window.addEventListener('click', () => {
-      select.classList.remove('open');
-    });
+        // Close when clicking outside
+        window.addEventListener('click', () => {
+            select.classList.remove('open');
+        });
 
-  </script>
+    </script>
 </body>
 
 </html>
