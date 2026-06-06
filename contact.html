@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@600;700;800;900&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/header.css">
@@ -32,7 +32,7 @@
                     scale and secure your IT infrastructure.</p>
             </div>
             <div class="contact-card fade-up fade-up-d1" id="contact-form">
-                <form onsubmit="return false;">
+                <form id="contactForm">
                     <div class="form-grid">
                         <div class="form-group">
                             <input type="text" id="cf-name" placeholder="Enter your name" required />
@@ -93,7 +93,7 @@
                         </div>
                     </div>
 
-                    <div class="loc-detail">
+                    <!-- <div class="loc-detail">
                         <div class="loc-detail-icon">
                             <span class="material-symbols-rounded filled">call</span>
                         </div>
@@ -101,7 +101,7 @@
                             <strong>Phone Numbers</strong>
                             <span>+353 (0) 1 123 4567</span><br />
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="loc-detail">
                         <div class="loc-detail-icon">
@@ -156,6 +156,39 @@
 
     <div id="footer-placeholder"></div>
 
+    <!-- ─── SUBMISSION POPUP MODAL ─── -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-card">
+            <button class="popup-close" id="popupClose">&times;</button>
+            <div class="popup-content">
+                <!-- Loading State -->
+                <div class="popup-state" id="state-loading">
+                    <div class="popup-spinner"></div>
+                    <h3>Sending Message</h3>
+                    <p>Please wait while we secure your request and send it to our team.</p>
+                </div>
+                <!-- Success State -->
+                <div class="popup-state" id="state-success">
+                    <div class="success-icon-wrap">
+                        <span class="material-symbols-rounded filled">check_circle</span>
+                    </div>
+                    <h3>Message Sent!</h3>
+                    <p>Thank you for reaching out. We have received your enquiry and will reply shortly.</p>
+                    <button class="btn-popup-action" id="btn-success-close">Done</button>
+                </div>
+                <!-- Error State -->
+                <div class="popup-state" id="state-error">
+                    <div class="error-icon-wrap">
+                        <span class="material-symbols-rounded filled">warning</span>
+                    </div>
+                    <h3>Failed to Send</h3>
+                    <p>There was a problem delivering your message. Please try again or email us directly.</p>
+                    <button class="btn-popup-action btn-popup-error" id="btn-error-close">Try Again</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
@@ -182,6 +215,7 @@
                 option.classList.add('selected');
                 // Update trigger text
                 trigger.querySelector('span').textContent = option.textContent;
+                trigger.classList.add('has-value');
                 // Update hidden input value
                 hiddenInput.value = option.getAttribute('data-value');
                 // Close select
@@ -194,6 +228,103 @@
             select.classList.remove('open');
         });
 
+        // ─── Submission Popup Modal Controls ───
+        const popupOverlay = document.getElementById("popupOverlay");
+        const popupClose = document.getElementById("popupClose");
+        const successClose = document.getElementById("btn-success-close");
+        const errorClose = document.getElementById("btn-error-close");
+        
+        const stateLoading = document.getElementById("state-loading");
+        const stateSuccess = document.getElementById("state-success");
+        const stateError = document.getElementById("state-error");
+
+        function showPopupState(state) {
+            popupOverlay.classList.add("active");
+            stateLoading.classList.remove("active");
+            stateSuccess.classList.remove("active");
+            stateError.classList.remove("active");
+            
+            if (state === "loading") {
+                stateLoading.classList.add("active");
+            } else if (state === "success") {
+                stateSuccess.classList.add("active");
+            } else if (state === "error") {
+                stateError.classList.add("active");
+            }
+        }
+
+        function closePopup() {
+            popupOverlay.classList.remove("active");
+        }
+
+        popupClose.addEventListener("click", closePopup);
+        successClose.addEventListener("click", closePopup);
+        errorClose.addEventListener("click", closePopup);
+
+        // Close popup if clicking on overlay background
+        popupOverlay.addEventListener("click", (e) => {
+            if (e.target === popupOverlay) {
+                closePopup();
+            }
+        });
+
+        // ─── Contact Form Submission handler ───
+        const form = document.getElementById("contactForm");
+
+        form.addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            // Validate custom dropdown has a selected value
+            const serviceValue = hiddenInput.value;
+            if (!serviceValue) {
+                // Make the custom dropdown glow to alert user
+                trigger.style.borderColor = "#ef4444";
+                trigger.style.boxShadow = "0 0 0 4px rgba(239, 68, 68, 0.15)";
+                setTimeout(() => {
+                    trigger.style.borderColor = "";
+                    trigger.style.boxShadow = "";
+                }, 3000);
+                return;
+            }
+
+            showPopupState("loading");
+
+            const formData = {
+                name: document.getElementById("cf-name").value,
+                email: document.getElementById("cf-email").value,
+                service: serviceValue,
+                subject: document.getElementById("cf-subject").value,
+                message: document.getElementById("cf-message").value
+            };
+
+            try {
+                const response = await fetch("http://localhost:5000/contact", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    showPopupState("success");
+                    form.reset();
+                    // Reset dropdown trigger UI
+                    trigger.querySelector('span').textContent = "Select a service";
+                    trigger.classList.remove('has-value');
+                    hiddenInput.value = "";
+                    options.forEach(opt => opt.classList.remove('selected'));
+                } else {
+                    showPopupState("error");
+                }
+
+            } catch (error) {
+                console.error(error);
+                showPopupState("error");
+            }
+        });
     </script>
 </body>
 
